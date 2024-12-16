@@ -1,0 +1,44 @@
+# Enable URL Rewriting
+RewriteEngine On
+
+# Redirect requests to the correct directory for PHP files
+RewriteRule ^admin$ admin/index.php [L]
+RewriteRule ^frontend$ frontend/index.html [L]
+
+# Force HTTPS (optional: if you are using HTTPS)
+# Uncomment this block if you want to enforce HTTPS
+# RewriteCond %{HTTPS} off
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Allow file uploads (Ensure proper folder permissions)
+# Set maximum upload size for images and videos
+php_value upload_max_filesize 10M
+php_value post_max_size 20M
+php_value max_execution_time 300
+php_value max_input_time 300
+
+# Prevent access to sensitive files (like .env or .git)
+<FilesMatch "\.(env|git|gitignore)">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Prevent directory listing
+Options -Indexes
+
+# Protect sensitive files (e.g., admin)
+<Files "admin/index.php">
+    Order Deny,Allow
+    Deny from all
+    Allow from 127.0.0.1
+</Files>
+
+# Set default index page (in case of missing index)
+DirectoryIndex index.php index.html
+
+# Rewrite to remove file extensions (optional, for cleaner URLs)
+RewriteRule ^([a-zA-Z0-9_-]+)$ $1.php [NC,L]
+
+# Error handling (optional)
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
