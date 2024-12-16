@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file'])) {
     $category = htmlspecialchars($_POST['category'], ENT_QUOTES);
     $date_uploaded = $_POST['date_uploaded'] ?? date('Y-m-d H:i:s');
 
+    // Directory for file uploads
     $uploadDir = '../uploads/';
 
     // Check if upload directory exists
@@ -45,11 +46,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file'])) {
     if (move_uploaded_file($file['tmp_name'], $filePath)) {
         // Determine media type
         $mediaType = (strpos($file['type'], 'image') !== false) ? 'photo' : 'video';
+
+        // Construct absolute media URL
+        $baseUrl = "http://localhost/photographer-2-master/";
+        $mediaUrl = $baseUrl . 'uploads/' . $fileName;
+
         $thumbnailUrl = ''; // Optionally, generate thumbnail for video files
 
-        // Insert metadata into the database
         $query = "INSERT INTO media (title, description, caption, date_uploaded, category, media_url, media_type, thumbnail_url)
-                  VALUES ('$title', '$description', '$caption', '$date_uploaded', '$category', '$filePath', '$mediaType', '$thumbnailUrl')";
+          VALUES ('$title', '$description', '$caption', '$date_uploaded', '$category', '$filePath', '$mediaType', '$thumbnailUrl')";
+
 
         if (mysqli_query($db, $query)) {
             echo "File uploaded and saved successfully!";
