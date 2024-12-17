@@ -572,6 +572,43 @@ ol {
 
 /* Masonry Gallery Styling */
 /* Masonry Grid Styling */
+/* Base styling for Masonry (for larger screens) */
+.masonry-item {
+	width: 33%; /* 3 items per row */
+	margin-bottom: 20px; /* Space between items */
+  }
+  
+  .masonry-img {
+	width: 100%; /* Make image fill its container */
+	height: auto; /* Maintain aspect ratio */
+  }
+  
+  /* Adjust for smaller screen sizes (tablets and mobile) */
+  @media (max-width: 768px) {
+	.masonry-item {
+	  width: 50%; /* 2 items per row on medium screens */
+	}
+  
+	.masonry-img {
+	  /* Ensure the images scale nicely */
+	  max-height: 300px;  /* Set a max height for the image to prevent distortion */
+	  object-fit: cover;  /* Ensure the image covers the container without stretching */
+	}
+  }
+  
+  /* Adjust for smaller screens (mobile) */
+  @media (max-width: 480px) {
+	.masonry-item {
+	  width: 100%; /* 1 item per row on small screens */
+	}
+  
+	.masonry-img {
+	  /* On mobile, allow images to fill the available space but maintain a nice aspect ratio */
+	  max-height: 400px;  /* Increase max height for bigger images */
+	  object-fit: cover;  /* Keep the image's aspect ratio intact */
+	}
+  }
+  
 .masonry-grid {
 	display: block; /* Ensures Masonry handles positioning */
 	margin: 0 auto;

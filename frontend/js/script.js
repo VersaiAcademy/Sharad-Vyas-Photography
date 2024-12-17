@@ -111,14 +111,21 @@ function renderPortfolioMedia(mediaData) {
     const mediaElement = document.createElement('div');
     mediaElement.classList.add('portfolio-item', 'masonry-item');
 
-    // Create a link for media items (you can modify to redirect as needed)
+    // Create a link for media items (this will trigger the modal)
     const mediaLink = document.createElement('a');
-    mediaLink.href = item.link || '#';  // Replace with actual link if available
     mediaLink.classList.add('masonry-link');
+    mediaLink.setAttribute('data-bs-toggle', 'modal'); // Add Bootstrap modal trigger
+    mediaLink.setAttribute('data-bs-target', '#imageModal'); // Link to the modal
+    mediaLink.setAttribute('data-title', item.title);  // Store title in a custom attribute
+    mediaLink.setAttribute('data-caption', item.caption);  // Store caption
+    mediaLink.setAttribute('data-description', item.description);  // Store description
+    mediaLink.setAttribute('data-category', item.category);  // Store category
+    mediaLink.setAttribute('data-date', item.date);  // Store date
+    mediaLink.setAttribute('data-media-url', item.media_url);  // Store media URL for image/video
 
     // Handle photo media type
     if (item.media_type === 'photo') {
-      mediaLink.innerHTML = `
+      mediaLink.innerHTML = ` 
         <img src="${item.media_url}" alt="${item.title}" class="masonry-img" />
       `;
     }
@@ -147,7 +154,33 @@ function renderPortfolioMedia(mediaData) {
 
   // Optional: Lazy load images or implement any other feature
   // lazyLoadImages();
+  // Event listener to fill the modal dynamically when an image or video is clicked
+document.querySelectorAll('.masonry-link').forEach(link => {
+  link.addEventListener('click', (event) => {
+    // Fetch the data from the clicked media item
+    const title = event.currentTarget.getAttribute('data-title');
+    const caption = event.currentTarget.getAttribute('data-caption');
+    const description = event.currentTarget.getAttribute('data-description');
+    const category = event.currentTarget.getAttribute('data-category');
+    const date = event.currentTarget.getAttribute('data-date');
+    const mediaUrl = event.currentTarget.getAttribute('data-media-url');
+
+    // Log the fetched data to verify it's correct
+    console.log({ title, caption, description, category, date, mediaUrl });
+
+    // Populate the modal
+    document.getElementById('imageModalLabel').textContent = title;
+    document.getElementById('modalImage').src = mediaUrl;
+    document.getElementById('modalDescription').textContent = description;
+    document.getElementById('modalCategory').textContent = category;
+    document.getElementById('modalDate').textContent = date;
+    document.getElementById('modalCaption').textContent = caption;
+  });
+});
 }
+
+
+
 
 
 
