@@ -567,12 +567,72 @@ ol {
 }
 
 /*------------------
+  Masonry section
+---------------------*/
+
+/* Masonry Gallery Styling */
+/* Masonry Grid Styling */
+.masonry-grid {
+	display: block; /* Ensures Masonry handles positioning */
+	margin: 0 auto;
+  }
+  
+  .masonry-item {
+	width: calc(33.333% - 20px); /* Adjust to fit 3 columns */
+	margin: 10px; /* Space between items */
+	transition: transform 0.2s ease-in-out, border-radius 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for scaling, border-radius, and shadow */
+
+	box-sizing: border-box; /* Include padding and borders in width */
+  }
+
+/* Hover Effect - Subtle Zoom-in */
+.masonry-item:hover {
+	transform: scale(1.03); /* Slight zoom-in effect */
+	border-radius: 12px; /* Increase border-radius for a smooth, rounded effect */
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer shadow for a lighter lift effect */
+	z-index: 10; /* Ensure the hovered item is above others */
+  }
+  
+  /* Adding a transition effect to make the hover smoother */
+ /* For smooth hover effects and removing the focus outline */
+.masonry-link:focus {
+	outline: none;  /* Removes the blue border when clicked */
+  }
+  
+  .masonry-link {
+	display: block;
+	position: relative;
+	overflow: hidden;
+  }
+  
+
+  
+  .masonry-item img,
+  .masonry-item video {
+	display: block;
+	width: 100%;
+	height: auto; /* Maintain aspect ratio */
+	border-radius: 5px; /* Optional: add rounded corners */
+  }
+
+  .masonry-link:hover .masonry-img {
+	transform: scale(1.05);  /* Slight zoom effect */
+  }
+  
+  .masonry-link:hover {
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);  /* Add shadow for hover effect */
+	border-radius: 10px;  /* Smooth border radius */
+  }
+  
+
+/*------------------
   Hero section
 ---------------------*/
 
 .hero-section {
 	clear: both;
 	position: relative;
+	min-height: 70vh;
 }
 
 .hero-item {

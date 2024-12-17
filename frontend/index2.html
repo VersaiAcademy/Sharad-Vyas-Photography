@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 	<!-- Favicon -->
-	<link href="img/favicon.ico" rel="shortcut icon"/>
+	<link href="../img/favicon.ico" rel="shortcut icon"/>
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
 	<link rel="stylesheet" href="css/owl.carousel.min.css"/>
 
 	<!-- Main Stylesheets -->
-	<link rel="stylesheet" href="css/style.css"/>
+	<link rel="stylesheet" href="./css/style.css"/>
 
 
 	<!--[if lt IE 9]>
@@ -38,7 +38,7 @@
 
 	<!-- Header section  -->
 	<header class="header-section">
-		<a href="index.html" class="site-logo"><img src="img/logo.png" alt="logo"></a>
+		<a href="index.html" class="site-logo"><img src="../img/logo.png" alt="logo"></a>
 		<div class="header-controls">
 			<button class="nav-switch-btn"><i class="fa fa-bars"></i></button>
 			<button class="search-btn"><i class="fa fa-search"></i></button>
@@ -67,22 +67,13 @@
 
 	<!-- Hero section  -->
 	<div class="hero-section">
-		<div class="hero-slider owl-carousel">
-			<!-- Hero Section -->
-
-          
-			 <!-- Placeholder content -->
-			 <!-- <div class="hero-item portfolio-item set-bg" data-setbg="">
-				<a href="#" class="hero-link">
-					
-				</a>
-			</div> -->
-
-		
-			
-
-
-		</div>
+        <div class="container-fluid">
+            <!-- Masonry Grid -->
+            <div id="media-gallery" class="masonry-grid">
+                <!-- Media items will be dynamically added here -->
+              </div>
+        </div>
+      
 		
 
 		<div class="hero-social-links">
@@ -94,33 +85,36 @@
 		</div>
 	</div>
 	<!-- Hero section end  -->
-	
-	<!-- Intro section   -->
+
+
+    	<!-- Intro section   -->
 	<section class="intro-section">
 		<div class="intro-warp">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-xl-6 col-lg-7 p-0">
+					<div class="col-xl-6 col-lg-6 p-0">
 						<div class="intro-text">
 							<h2>My name is Sharad Vyas. I’m a reputed judge in Churu, Rajasthan with a passion for photography.</h2>
 <p>With years of experience serving as a judge in the courts of Churu, Rajasthan, I’ve developed a deep sense of justice and precision in my work. Beyond the courtroom, I have a keen interest in photography, capturing moments of beauty in nature and life. Photography serves as a creative outlet for me, allowing me to explore different perspectives and express my passion for capturing the world through the lens. This hobby complements my professional life, offering a balance between logic and creativity.</p>
-<a href="#" class="sp-link">Take a look @my portfolio</a>
+<a href="/photographer-2-master/frontend/portfolio.html" class="sp-link">Take a look @my portfolio</a>
 						</div>
 					</div>
-					<div class="col-xl-6 col-lg-5 p-0">
+					<div class="col-xl-6 col-lg-6 p-0">
 						<div class="skill-warp">
-							<div class="single-progress-item">
-								<div class="progress-bar-style" data-progress="75"></div>
-								<p>Nature</p>
-							</div>
-							<div class="single-progress-item">
-								<div class="progress-bar-style" data-progress="100"></div>
-								<p>Passion</p>
-							</div>
-							<div class="single-progress-item">
-								<div class="progress-bar-style" data-progress="90"></div>
-								<p>Portraits</p>
-							</div>
+							<div class="element">
+                                <h3 class="el-title">My Circles</h3>
+                                <div class="row">
+                                    <div class="col-lg-3 col-sm-6">
+                                        <div class="circle-progress" data-cptitle="Passion" data-cpid="id-1" data-cpvalue="99" data-cpcolor="#304a5f"></div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6">
+                                        <div class="circle-progress" data-cptitle="Travel" data-cpid="id-3" data-cpvalue="100" data-cpcolor="#304a5f"></div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6">
+                                        <div class="circle-progress" data-cptitle="Nature" data-cpid="id-4" data-cpvalue="95" data-cpcolor="#304a5f"></div>
+                                    </div>
+                                </div>
+                            </div>
 						</div>
 					</div>
 				</div>
@@ -128,8 +122,7 @@
 		</div>
 	</section>
 	<!-- Intro section end  -->
-	
-	<!-- Footer section   -->
+     	<!-- Footer section   -->
 	<footer class="footer-section">
 		<div class="container-fluid">
 			<div class="row">
@@ -165,6 +158,8 @@
 		</div>
 	</div>
 	<!-- Search model end -->
+	
+
 
 	<!--====== Javascripts & Jquery ======-->
 	<script src="js/jquery-3.2.1.min.js"></script>
@@ -177,7 +172,11 @@
 	<script src="js/instafeed.min.js"></script>
 	<script src="js/masonry.pkgd.min.js"></script>
 	<script src="js/main.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <script src="js/script.js"></script>
+
+
 	
 	
 	
