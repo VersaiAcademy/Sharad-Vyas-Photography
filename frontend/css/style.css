@@ -623,6 +623,16 @@ ol {
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);  /* Add shadow for hover effect */
 	border-radius: 10px;  /* Smooth border radius */
   }
+
+  /* Ensure hidden items (by MixItUp) don't take up space */
+.mix {
+	display: none; /* Default MixItUp behavior */
+	opacity: 0; /* For smoother transitions */
+	transition: all 0.3s ease; /* Smooth animations */
+  }
+  .mixitup-control-active {
+	color: #000; /* Highlight active category button */
+  }
   
 
 /*------------------
