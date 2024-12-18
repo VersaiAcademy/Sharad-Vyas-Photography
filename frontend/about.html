@@ -61,39 +61,40 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-6 p-0">
-					<div class="about-bg set-bg" data-setbg="../img/about.jpg"></div>
+					<div class="about-bg set-bg" data-setbg="../img/sharadji.jpeg"></div>
 				</div>
 				<div class="col-lg-6 p-0">
 					<div class="about-text">
-						<h2>About me. Sam Smith</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas ac-cumsan lacus vel facilisis commodo viverra maecenas. Lorem ipsum dolor sit amet, consectetur adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum susp endisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
-						<h4>My Clients</h4>
-						<p>Company INC, Management INc, Photo album INC, Magnum Express, Fachion Gala, Unnamed, </p>
+						<div id="lottie-animation"></div>
+						<h2>About Me. Sharad Vyas</h2>
+<p>I am Sharad Vyas, a respected judge in the Indian judiciary, committed to upholding justice and integrity. Alongside my professional responsibilities, I have a deep passion for travel and capturing the beauty of life. I find immense joy in exploring new places, discovering hidden corners of the world, and experiencing the unique stories each destination has to offer. Photography allows me to freeze these moments and share the wonders of life through my lens. My journey blends both my legal profession and my love for creativity, inspiring me to appreciate the beauty in both life and law.</p>
+<!-- <h4>My Clients</h4> -->
+						<!-- <p>Company INC, Management INc, Photo album INC, Magnum Express, Fachion Gala, Unnamed, </p>
 						<h4>Editorials</h4>
-						<p>Vougue, Elle, Company INC, Management INc, Photo album INC, Fashion Week, Fachion Gala, Unnamed, Vanity Fair, Vougue IT</p>
-						<a href="#" class="site-btn">contact me</a>
+						<p>Vougue, Elle, Company INC, Management INc, Photo album INC, Fashion Week, Fachion Gala, Unnamed, Vanity Fair, Vougue IT</p> -->
+						<a href="/photographer-2-master/frontend/contact.htmlc" class="site-btn">Contact me</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 	<!-- About section end  -->
-	
+	<br/>
 	<!-- Skills section  -->
-	<div class="skill-section set-bg" data-setbg="img/skills-bg.jpg">
+	<div class="skill-section set-bg" data-setbg="../img/skills-bg.jpg">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-3 col-sm-6">
-					<div class="circle-progress text-white" data-cptitle="Passion" data-cpid="id-1" data-cpvalue="100" data-cpcolor="#ffffff"></div>
+					<div class="circle-progress text-white" data-cptitle="Passion" data-cpid="id-1" data-cpvalue="99" data-cpcolor="#ffffff"></div>
 				</div>
 				<div class="col-lg-3 col-sm-6">
-					<div class="circle-progress text-white" data-cptitle="Models" data-cpid="id-2" data-cpvalue="75" data-cpcolor="#ffffff"></div>
+					<div class="circle-progress text-white" data-cptitle="Travel" data-cpid="id-2" data-cpvalue="100" data-cpcolor="#ffffff"></div>
 				</div>
 				<div class="col-lg-3 col-sm-6">
-					<div class="circle-progress text-white" data-cptitle="Studio" data-cpid="id-3" data-cpvalue="25" data-cpcolor="#ffffff"></div>
+					<div class="circle-progress text-white" data-cptitle="Creativity" data-cpid="id-3" data-cpvalue="95" data-cpcolor="#ffffff"></div>
 				</div>
 				<div class="col-lg-3 col-sm-6">
-					<div class="circle-progress text-white" data-cptitle="Nature" data-cpid="id-4" data-cpvalue="50" data-cpcolor="#ffffff"></div>
+					<div class="circle-progress text-white" data-cptitle="Nature" data-cpid="id-4" data-cpvalue="90" data-cpcolor="#ffffff"></div>
 				</div>
 			</div>
 		</div>
@@ -101,7 +102,7 @@
 	<!-- Skills section end  -->
 	
 	<!-- Services section  -->
-	<section class="services-section">
+	<!-- <section class="services-section">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-4 col-md-6">
@@ -151,21 +152,20 @@
 				<div class="site-btn">Ask for a Quote</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<!-- Services section end  -->
 
 	<!-- Instagram section -->
-	<div class="instagram-section">
+	<!-- <div class="instagram-section">
 		<h6>Instagram Feed</h6>
 		<div id="instafeed" class="instagram-slider owl-carousel"></div>
-	</div>
+	</div> -->
 	<!-- Instagram section end -->
-	
 	
 	<!-- Footer section   -->
 	<footer class="footer-section">
 		<div class="container-fluid">
-			<div class="row">
+			<div class="row mt-2">
 				<div class="col-md-6 order-1 order-md-2">
 					<div class="footer-social-links">
 						<a href=""><i class="fa fa-pinterest"></i></a>
@@ -209,7 +209,17 @@
 	<script src="js/mixitup.min.js"></script>
 	<script src="js/instafeed.min.js"></script>
 	<script src="js/masonry.pkgd.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.10/bodymovin.min.js"></script>
 	<script src="js/main.js"></script>
-
+	<script>
+		var animation = bodymovin.loadAnimation({
+		  container: document.getElementById('lottie-animation'), // the DOM element to contain the animation
+		  renderer: 'svg', // or 'canvas', 'html'
+		  loop: true, // if you want the animation to loop
+		  autoplay: true, // if you want it to start immediately
+		  path: 'http://localhost/photographer-2-master/img/camera.json',
+		});
+	  </script>
+	  
 	</body>
 </html>

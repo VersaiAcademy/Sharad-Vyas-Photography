@@ -1,15 +1,219 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Media Gallery</title>
-  <link rel="stylesheet" href="css/style.css">
+	<title>Sharad Vyas Photography</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Photographer html template">
+	<meta name="keywords" content="photographer, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Favicon -->
+	<link href="../img/favicon.ico" rel="shortcut icon"/>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap" rel="stylesheet">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="css/magnific-popup.css"/>
+	<link rel="stylesheet" href="css/slicknav.min.css"/>
+	<link rel="stylesheet" href="css/owl.carousel.min.css"/>
+
+	<!-- Main Stylesheets -->
+	<link rel="stylesheet" href="./css/style.css"/>
+
+
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
 </head>
 <body>
-  <h1>Media Gallery</h1>
-  <div id="media-gallery"></div>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
 
-  <script src="js/script.js"></script>
-</body>
+	<!-- Header section  -->
+	<header class="header-section">
+		<a href="index.html" class="site-logo"><img src="../img/logo.png" alt="logo"></a>
+		<div class="header-controls">
+			<button class="nav-switch-btn"><i class="fa fa-bars"></i></button>
+			<button class="search-btn"><i class="fa fa-search"></i></button>
+		</div>
+		<ul class="main-menu">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="about.html">About the Artist </a></li>
+			<li>
+				<a href="portfolio.html">Portfolio</a></li>
+			</li>
+			
+			<li><a href="contact.html">Contact</a></li>
+		</ul>
+	</header>
+
+	<div class="clearfix"></div>
+	<!-- Header section end  -->
+
+	<!-- Hero section  -->
+	<div class="hero-section">
+        <div class="container-fluid">
+            <!-- Masonry Grid -->
+            <div id="media-gallery" class="masonry-grid">
+                <!-- Media items will be dynamically added here -->
+              </div>
+        </div>
+      
+		
+
+		<div class="hero-social-links">
+			<a href=""><i class="fa fa-pinterest"></i></a>
+			<a href=""><i class="fa fa-facebook"></i></a>
+			<a href=""><i class="fa fa-twitter"></i></a>
+			<a href=""><i class="fa fa-dribbble"></i></a>
+			<a href=""><i class="fa fa-behance"></i></a>
+		</div>
+	</div>
+	<!-- Hero section end  -->
+
+
+    	<!-- Intro section   -->
+	<section class="intro-section">
+		<div class="intro-warp">
+			<div class="container-fluid pattern">
+				<div class="row">
+					<div class="col-xl-7 col-lg-7 p-0">
+						<div class="intro-text">
+							<h2>My name is Sharad Vyas. I’m a reputed judge in Churu, Rajasthan with a passion for photography.</h2>
+<p>With years of experience serving as a judge in the courts of Churu, Rajasthan, I’ve developed a deep sense of justice and precision in my work. Beyond the courtroom, I have a keen interest in photography, capturing moments of beauty in nature and life. Photography serves as a creative outlet for me, allowing me to explore different perspectives and express my passion for capturing the world through the lens. This hobby complements my professional life, offering a balance between logic and creativity.</p>
+<a href="/photographer-2-master/frontend/portfolio.html" class="sp-link">Take a look @my portfolio</a>
+						</div>
+					</div>
+					<div class="col-xl-5 col-lg-5 p-0">
+					<!-- SMApleCard -->
+          <div class="e-card playing">
+            <div class="image"></div>
+            
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+            
+          
+                <div class="infotop">
+          
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="icon">
+            <path fill="currentColor" d="M19.4133 4.89862L14.5863 2.17544C12.9911 1.27485 11.0089 1.27485 9.41368 2.17544L4.58674
+            4.89862C2.99153 5.7992 2 7.47596 2 9.2763V14.7235C2 16.5238 2.99153 18.2014 4.58674 19.1012L9.41368
+            21.8252C10.2079 22.2734 11.105 22.5 12.0046 22.5C12.6952 22.5 13.3874 22.3657 14.0349 22.0954C14.2204
+            22.018 14.4059 21.9273 14.5872 21.8252L19.4141 19.1012C19.9765 18.7831 20.4655 18.3728 20.8651
+            17.8825C21.597 16.9894 22 15.8671 22 14.7243V9.27713C22 7.47678 21.0085 5.7992 19.4133 4.89862ZM4.10784
+            14.7235V9.2763C4.10784 8.20928 4.6955 7.21559 5.64066 6.68166L10.4676 3.95848C10.9398 3.69152 11.4701
+            3.55804 11.9996 3.55804C12.5291 3.55804 13.0594 3.69152 13.5324 3.95848L18.3593 6.68166C19.3045 7.21476
+            19.8922 8.20928 19.8922 9.2763V9.75997C19.1426 9.60836 18.377 9.53091 17.6022 9.53091C14.7929 9.53091
+            12.1041 10.5501 10.0309 12.3999C8.36735 13.8847 7.21142 15.8012 6.68783 17.9081L5.63981 17.3165C4.69466
+            16.7834 4.10699 15.7897 4.10699 14.7235H4.10784ZM10.4676 20.0413L8.60933 18.9924C8.94996 17.0479 9.94402
+            15.2665 11.4515 13.921C13.1353 12.4181 15.3198 11.5908 17.6022 11.5908C18.3804 11.5908 19.1477 11.6864
+            19.8922 11.8742V14.7235C19.8922 15.2278 19.7589 15.7254 19.5119 16.1662C18.7615 15.3596 17.6806 14.8528
+             16.4783 14.8528C14.2136 14.8528 12.3781 16.6466 12.3781 18.8598C12.3781 19.3937 12.4861 19.9021 12.68
+             20.3676C11.9347 20.5316 11.1396 20.4203 10.4684 20.0413H10.4676Z"></path></svg><br>      
+            Passionate For My Camera
+          <br>
+          <div class="name">Capturing Life</div>
+            </div>
+          </div>
+					</div>
+				
+				</div>
+				<div class="row">
+					<div class="col-xl-12 col-lg-12 p-0">
+              <div class="skill-warp">
+                <div class="element">
+                                  <h3 class="el-title">My Circles</h3>
+                                  <div class="row">
+                                      <div class="col-lg-3 col-sm-6">
+                                          <div class="circle-progress" data-cptitle="Passion" data-cpid="id-1" data-cpvalue="99" data-cpcolor="#304a5f"></div>
+                                      </div>
+                                      <div class="col-lg-3 col-sm-6">
+                                          <div class="circle-progress" data-cptitle="Travel" data-cpid="id-3" data-cpvalue="100" data-cpcolor="#304a5f"></div>
+                                      </div>
+                                      <div class="col-lg-3 col-sm-6">
+                                          <div class="circle-progress" data-cptitle="Nature" data-cpid="id-4" data-cpvalue="95" data-cpcolor="#304a5f"></div>
+                                      </div>
+                                  </div>
+                              </div>
+              </div>
+            </div>
+				
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Intro section end  -->
+     	<!-- Footer section   -->
+	<footer class="footer-section">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-6 order-1 order-md-2">
+					<div class="footer-social-links">
+						<a href=""><i class="fa fa-pinterest"></i></a>
+						<a href=""><i class="fa fa-facebook"></i></a>
+						<a href=""><i class="fa fa-twitter"></i></a>
+						<a href=""><i class="fa fa-dribbble"></i></a>
+						<a href=""><i class="fa fa-behance"></i></a>
+					</div>
+				</div>
+				<div class="col-md-6 order-2 order-md-1">
+					<div class="copyright">
+  <!-- Link back to Versai Technology can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This website is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://versai.com" target="_blank">Versai Technology</a>
+  <!-- Link back to Versai Technology can't be removed. Template is licensed under CC BY 3.0. -->
+</div>
+	
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer section end  -->
+
+	<!-- Search model -->
+	<div class="search-model">
+		<div class="h-100 d-flex align-items-center justify-content-center">
+			<div class="search-close-switch">+</div>
+			<form class="search-model-form">
+				<input type="text" id="search-input" placeholder="Search here.....">
+			</form>
+		</div>
+	</div>
+	<!-- Search model end -->
+	
+
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.slicknav.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/circle-progress.min.js"></script>
+	<script src="js/mixitup.min.js"></script>
+	<script src="js/instafeed.min.js"></script>
+	<script src="js/masonry.pkgd.min.js"></script>
+	<script src="js/main.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="js/script.js"></script>
+
+
+
+	
+	
+	
+	
+	
+	
+	  
+
+	</body>
 </html>

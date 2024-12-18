@@ -669,8 +669,188 @@ ol {
 	}
   }
   
-
-
+/* CARD SAMPLE */
+/* From Uiverse.io by MikeAndrewDesigner */ 
+.e-card {
+	margin: 100px auto;
+	background: transparent;
+	box-shadow: 0px 8px 28px -9px rgba(0,0,0,0.45);
+	position: relative;
+	width: 240px;
+	height: 330px;
+	border-radius: 16px;
+	overflow: hidden;
+  }
+  
+  .wave {
+	position: absolute;
+	width: 540px;
+	height: 700px;
+	opacity: 0.6;
+	left: 0;
+	top: 0;
+	margin-left: -50%;
+	margin-top: -70%;
+	background: linear-gradient(744deg,#af40ff,#5b42f3 60%,#00ddeb);
+  }
+  
+  .icon {
+	width: 3em;
+	margin-top: -1em;
+	padding-bottom: 1em;
+  }
+  
+  .infotop {
+	text-align: center;
+	font-size: 20px;
+	position: absolute;
+	top: 5.6em;
+	left: 0;
+	right: 0;
+	color: rgb(255, 255, 255);
+	font-weight: 600;
+  }
+  
+  .name {
+	font-size: 14px;
+	font-weight: 100;
+	position: relative;
+	top: 1em;
+	text-transform: lowercase;
+  }
+  
+  .wave:nth-child(2),
+  .wave:nth-child(3) {
+	top: 210px;
+  }
+  
+  .playing .wave {
+	border-radius: 40%;
+	animation: wave 3000ms infinite linear;
+  }
+  
+  .wave {
+	border-radius: 40%;
+	animation: wave 55s infinite linear;
+  }
+  
+  .playing .wave:nth-child(2) {
+	animation-duration: 4000ms;
+  }
+  
+  .wave:nth-child(2) {
+	animation-duration: 50s;
+  }
+  
+  .playing .wave:nth-child(3) {
+	animation-duration: 5000ms;
+  }
+  
+  .wave:nth-child(3) {
+	animation-duration: 45s;
+  }
+  
+  @keyframes wave {
+	0% {
+	  transform: rotate(0deg);
+	}
+  
+	100% {
+	  transform: rotate(360deg);
+	}
+  }
+  
+  /* Sample pattern */
+  /* From Uiverse.io by kennyotsu-monochromia */ 
+.pattern {
+	width: 100%;
+	height: 100%;
+	--color: #E1E1E1;
+	background-color: #F3F3F3;
+	background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
+		linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
+	background-size: 55px 55px;
+  }
+  /* Sample animation */
+  /* From Uiverse.io by vinodjangid07 */ 
+.loaderr {
+	width: fit-content;a
+	height: fit-content;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  }
+  .wrapper {
+	width: fit-content;
+	height: fit-content;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+  }
+  .catContainer {
+	width: 100%;
+	height: fit-content;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+  }
+  .catbody {
+	width: 80px;
+  }
+  .tail {
+	position: absolute;
+	width: 17px;
+	top: 50%;
+	animation: tail 0.5s ease-in infinite alternate-reverse;
+	transform-origin: top;
+  }
+  @keyframes tail {
+	0% {
+	  transform: rotateZ(60deg);
+	}
+	50% {
+	  transform: rotateZ(0deg);
+	}
+	100% {
+	  transform: rotateZ(-20deg);
+	}
+  }
+  .wall {
+	width: 300px;
+  }
+  .text {
+	display: flex;
+	flex-direction: column;
+	width: 50px;
+	position: absolute;
+	margin: 0px 0px 100px 120px;
+  }
+  .zzz {
+	color: black;
+	font-weight: 700;
+	font-size: 15px;
+	animation: zzz 2s linear infinite;
+  }
+  .bigzzz {
+	color: black;
+	font-weight: 700;
+	font-size: 25px;
+	margin-left: 10px;
+	animation: zzz 2.3s linear infinite;
+  }
+  @keyframes zzz {
+	0% {
+	  color: transparent;
+	}
+	50% {
+	  color: black;
+	}
+	100% {
+	  color: transparent;
+	}
+  }
   
 
 /*------------------
