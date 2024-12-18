@@ -8,9 +8,9 @@ if (!$db) {
     die("Database connection failed: " . mysqli_connect_error());
 }
 
-// Handle file upload
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file'])) {
-    $file = $_FILES['file'];
+// Handle multiple file uploads
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['files'])) {
+    $files = $_FILES['files'];
     $title = htmlspecialchars($_POST['title'], ENT_QUOTES);
     $description = htmlspecialchars($_POST['description'], ENT_QUOTES);
     $caption = htmlspecialchars($_POST['caption'], ENT_QUOTES);
@@ -20,71 +20,69 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file'])) {
     // Directory for file uploads
     $uploadDir = '../uploads/';
 
-    // Check if upload directory exists
+    // Create the upload directory if it doesn't exist
     if (!is_dir($uploadDir)) {
         mkdir($uploadDir, 0777, true);
     }
+
     if (!is_writable($uploadDir)) {
         die("Upload directory is not writable.");
     }
 
-    if (!isset($_FILES['file']) || $_FILES['file']['error'] !== UPLOAD_ERR_OK) {
-        die("File upload failed. Error code: " . ($_FILES['file']['error'] ?? 'Unknown'));
-    }
-    
-    // Get the temporary file path
-    $tmpFilePath = $_FILES['file']['tmp_name'];
-    
-    if (!is_uploaded_file($tmpFilePath)) {
-        die("Invalid file upload. Please try again.");
-    }
-    
-    // Validate file type using finfo
     $allowedMimeTypes = ['image/jpeg', 'image/png', 'video/mp4', 'video/webm'];
-    $finfo = finfo_open(FILEINFO_MIME_TYPE);
-    $fileMimeType = finfo_file($finfo, $tmpFilePath);
-    finfo_close($finfo);
-    
-    // Check MIME type
-    if (!in_array($fileMimeType, $allowedMimeTypes)) {
-        die("Invalid file type. Only JPEG, PNG, MP4, and WebM are allowed. Detected type: $fileMimeType");
-    }
 
-    // Check for upload errors
-    if ($file['error'] !== 0) {
-        die("Error uploading the file. Error Code: " . $file['error']);
-    }
+    // Loop through each uploaded file
+    for ($i = 0; $i < count($files['name']); $i++) {
+        $tmpFilePath = $files['tmp_name'][$i];
+        $fileError = $files['error'][$i];
+        $fileName = $files['name'][$i];
 
-    // Generate a unique file name and move the file
-    $fileName = uniqid() . '-' . basename($file['name']); // Create unique file name
-    $filePath = $uploadDir . $fileName; // Full path to upload directory
-    
-    if (move_uploaded_file($file['tmp_name'], $filePath)) {
-        // Generate correct media URL
-        $baseUrl = "http://localhost/photographer-2-master/";
-        $mediaUrl = $baseUrl . 'uploads/' . $fileName;
-    
-        // Media type detection
-        $mediaType = (strpos($fileMimeType, 'image') !== false) ? 'photo' : 'video';
-    
-        // Insert into the database
-        $query = "INSERT INTO media (title, description, caption, date_uploaded, category, media_url, media_type, thumbnail_url)
-                  VALUES ('$title', '$description', '$caption', '$date_uploaded', '$category', '$mediaUrl', '$mediaType', '')";
-    
-        if (mysqli_query($db, $query)) {
-            echo "File uploaded and saved successfully!";
-        } else {
-            echo "Error saving data to the database: " . mysqli_error($db);
+        // Validate file
+        if ($fileError !== UPLOAD_ERR_OK || !is_uploaded_file($tmpFilePath)) {
+            echo "File upload failed for $fileName. Error code: $fileError<br>";
+            continue; // Skip to the next file
         }
-    } else {
-        die("Failed to move the uploaded file.");
+
+        // Validate MIME type using finfo
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        $fileMimeType = finfo_file($finfo, $tmpFilePath);
+        finfo_close($finfo);
+
+        if (!in_array($fileMimeType, $allowedMimeTypes)) {
+            echo "Invalid file type for $fileName. Only JPEG, PNG, MP4, and WebM are allowed.<br>";
+            continue; // Skip to the next file
+        }
+
+        // Generate a unique file name and move the file
+        $uniqueFileName = uniqid() . '-' . basename($fileName);
+        $filePath = $uploadDir . $uniqueFileName;
+
+        if (move_uploaded_file($tmpFilePath, $filePath)) {
+            // Generate media URL
+            $baseUrl = "http://localhost/photographer-2-master/";
+            $mediaUrl = $baseUrl . 'uploads/' . $uniqueFileName;
+
+            // Media type detection
+            $mediaType = (strpos($fileMimeType, 'image') !== false) ? 'photo' : 'video';
+
+            // Insert metadata into the database
+            $query = "INSERT INTO media (title, description, caption, date_uploaded, category, media_url, media_type, thumbnail_url)
+                      VALUES ('$title', '$description', '$caption', '$date_uploaded', '$category', '$mediaUrl', '$mediaType', '')";
+
+            if (mysqli_query($db, $query)) {
+                echo "File '$fileName' uploaded and saved successfully!<br>";
+            } else {
+                echo "Error saving data for '$fileName' to the database: " . mysqli_error($db) . "<br>";
+            }
+        } else {
+            echo "Failed to move the uploaded file: $fileName<br>";
+        }
     }
-    
 
     // Redirect back to index.php
     header("Location: /photographer-2-master/admin/index.php");
     exit;
 } else {
-    echo "No file uploaded.";
+    echo "No files uploaded.";
 }
 ?>
