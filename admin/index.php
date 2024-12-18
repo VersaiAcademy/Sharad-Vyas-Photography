@@ -71,17 +71,20 @@
         <label for="date_uploaded" class="form-label">Date Uploaded</label>
         <input type="date" class="form-control" id="date_uploaded" name="date_uploaded">
       </div>
-      <!-- Category Selection -->
-      <div class="mb-3">
-        <label for="category" class="form-label">Category</label>
-        <select class="form-select" id="category" name="category">
-          <option value="Nature">Nature</option>
-          <option value="Architecture">Architecture</option>
-          <option value="Travel">Travel</option>
-          <option value="Food">Food</option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
+    <!-- Category Selection -->
+<div class="mb-3">
+  <label for="category" class="form-label">Category</label>
+  <select class="form-select" id="category" name="category" onchange="toggleOtherCategoryInput()">
+   
+  </select>
+  
+  <!-- Input field for new category (hidden initially) -->
+  <div id="newCategoryInput" style="display: none;">
+    <label for="newCategory" class="form-label">Enter New Category</label>
+    <input type="text" class="form-control" id="newCategory" name="newCategory" placeholder="Type your new category here">
+  </div>
+</div>
+
       <!-- Submit Button -->
       <button type="submit" class="btn btn-primary btn-upload">Upload Media</button>
     </form>
@@ -120,14 +123,61 @@
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    document.getElementById('uploadForm').addEventListener('submit', function (e) {
-      e.preventDefault();
+  const categorySelect = document.getElementById('category');
+  const newCategoryInput = document.getElementById('newCategoryInput');
+  const newCategoryValue = document.getElementById('newCategory'); // Input for custom category value
 
-      const formData = new FormData(this);
-      fetch('uploads.php', {
-        method: 'POST',
-        body: formData
-      })
+  fetch('get_data.php')
+    .then(response => response.json())
+    .then(data => {
+      console.log('Fetched Media Data for:', data); // Check the response in the console
+
+      const categories = [];
+      data.forEach(media => {
+        if (media.category && !categories.includes(media.category)) {
+          categories.push(media.category);
+        }
+      });
+
+      console.log('Unique Categories:', categories); // Check unique categories in the console
+
+      categories.forEach(category => {
+        const option = document.createElement('option');
+        option.value = category;
+        option.textContent = category;
+        categorySelect.appendChild(option);
+      });
+    })
+    .catch(error => {
+      console.error('Error fetching media data:', error);
+    });
+
+  // Submit handler for the form
+  document.getElementById('uploadForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // If "Other" is selected and a new category is provided, change the category value
+    if (categorySelect.value === 'Other' && newCategoryValue.value.trim() !== '') {
+      categorySelect.value = newCategoryValue.value.trim(); // Override with the custom category value
+    }
+
+    // Check if category is set before submitting the form
+    if (!categorySelect.value.trim()) {
+      alert('Please select or enter a category!');
+      return;
+    }
+
+    // Add the custom category value (if any) as a hidden input to the form
+    const formData = new FormData(this);
+    // If 'Other' is selected, append the custom category value to the form
+    if (categorySelect.value === 'Other' && newCategoryValue.value.trim() !== '') {
+      formData.append('category', newCategoryValue.value.trim()); // Append the custom category
+    }
+
+    fetch('uploads.php', {
+      method: 'POST',
+      body: formData
+    })
       .then(response => {
         if (response.ok) {
           new bootstrap.Modal(document.getElementById('successModal')).show();
@@ -139,7 +189,22 @@
         console.error(error);
         new bootstrap.Modal(document.getElementById('failureModal')).show();
       });
-    });
-  </script>
+  });
+
+  // Function to toggle the visibility of the input for the "Other" category
+  function toggleOtherCategoryInput() {
+    const categorySelect = document.getElementById('category');
+    const newCategoryInput = document.getElementById('newCategoryInput');
+
+    // Show the input if 'Other' is selected, otherwise hide it
+    if (categorySelect.value === 'Other') {
+      newCategoryInput.style.display = 'block';
+    } else {
+      newCategoryInput.style.display = 'none';
+    }
+  }
+</script>
+
+
 </body>
 </html>

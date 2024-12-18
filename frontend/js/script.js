@@ -47,11 +47,14 @@ function renderFolderPortfolio(folderData) {
       gridPortfolio.appendChild(description);
 
    // Add a click event listener to redirect to the folder's link
-   folderElement.addEventListener('click', () => {
-    // Check if the folder.link has a protocol (http or https)
-    const folderLink = folder.folder_link.startsWith('http') || folder.folder_link.startsWith('https') 
-      ? folder.folder_link 
-      : window.location.origin + '/' + folder.folder_link;
+  // Add a click event listener to redirect to the folder's link
+  folderElement.addEventListener('click', () => {
+    let folderLink = folder.folder_link;
+
+    // Check if the folder link starts with 'http' or 'https'
+    if (!(folderLink.startsWith('http://') || folderLink.startsWith('https://'))) {
+        folderLink = `http://${folderLink}`; // If not, prepend 'http://'
+    }
 
     // Redirect to the folder link
     window.location.href = folderLink;
