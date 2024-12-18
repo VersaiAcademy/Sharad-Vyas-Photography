@@ -179,7 +179,12 @@ document.querySelectorAll('.masonry-link').forEach(link => {
 });
 }
 
-
+// Fix Masonry layout on window resize
+window.addEventListener('resize', () => {
+  if (masonryInstance) {
+    masonryInstance.layout(); // Force Masonry to re-layout
+  }
+});
 
 
 

@@ -49,8 +49,8 @@
       <!-- File Input -->
       <div class="mb-3">
         <label for="file" class="form-label">Select File</label>
-        <input type="file" class="form-control" id="file" name="file" required>
-      </div>
+        <input type="file" class="form-control" id="file" name="files[]" multiple required>
+   </div>
       <!-- Title Input -->
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>

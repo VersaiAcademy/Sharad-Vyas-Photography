@@ -570,70 +570,75 @@ ol {
   Masonry section
 ---------------------*/
 
-/* Masonry Gallery Styling */
-/* Masonry Grid Styling */
-/* Base styling for Masonry (for larger screens) */
-.masonry-item {
-	width: 33%; /* 3 items per row */
-	margin-bottom: 20px; /* Space between items */
-  }
-  
-  .masonry-img {
-	width: 100%; /* Make image fill its container */
-	height: auto; /* Maintain aspect ratio */
-  }
-  
-  /* Adjust for smaller screen sizes (tablets and mobile) */
-  @media (max-width: 768px) {
-	.masonry-item {
-	  width: 50%; /* 2 items per row on medium screens */
-	}
-  
-	.masonry-img {
-	  /* Ensure the images scale nicely */
-	  max-height: 300px;  /* Set a max height for the image to prevent distortion */
-	  object-fit: cover;  /* Ensure the image covers the container without stretching */
-	}
-  }
-  
-  /* Adjust for smaller screens (mobile) */
-  @media (max-width: 480px) {
-	.masonry-item {
-	  width: 100%; /* 1 item per row on small screens */
-	}
-  
-	.masonry-img {
-	  /* On mobile, allow images to fill the available space but maintain a nice aspect ratio */
-	  max-height: 400px;  /* Increase max height for bigger images */
-	  object-fit: cover;  /* Keep the image's aspect ratio intact */
-	}
-  }
-  
 .masonry-grid {
 	display: block; /* Ensures Masonry handles positioning */
 	margin: 0 auto;
   }
   
+  /* Masonry item - General */
   .masonry-item {
-	width: calc(33.333% - 20px); /* Adjust to fit 3 columns */
+	width: calc(33.333% - 20px); /* 3 items per row with spacing */
 	margin: 10px; /* Space between items */
-	transition: transform 0.2s ease-in-out, border-radius 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for scaling, border-radius, and shadow */
-
+	transition: transform 0.2s ease-in-out, border-radius 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions */
 	box-sizing: border-box; /* Include padding and borders in width */
   }
-
-/* Hover Effect - Subtle Zoom-in */
-.masonry-item:hover {
-	transform: scale(1.03); /* Slight zoom-in effect */
-	border-radius: 12px; /* Increase border-radius for a smooth, rounded effect */
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer shadow for a lighter lift effect */
-	z-index: 10; /* Ensure the hovered item is above others */
+  
+  .masonry-img {
+	width: 100%; /* Fill the container */
+	height: auto; /* Maintain aspect ratio */
+	border-radius: 5px; /* Optional rounded corners */
+	object-fit: cover; /* Ensure proper scaling */
   }
   
-  /* Adding a transition effect to make the hover smoother */
- /* For smooth hover effects and removing the focus outline */
-.masonry-link:focus {
-	outline: none;  /* Removes the blue border when clicked */
+  /* Responsive adjustments for medium screens (Tablets) */
+  @media (max-width: 768px) {
+	.masonry-item {
+	  width: calc(50% - 20px); /* 2 items per row */
+	}
+  
+	.masonry-img {
+	  max-height: 400px; /* Allow images to grow taller on medium screens */
+	}
+  }
+  
+  /* Responsive adjustments for small screens (Mobile) */
+  @media (max-width: 480px) {
+	.masonry-item {
+	  width: calc(100% - 20px); /* 1 item per row */
+	}
+  
+	.masonry-img {
+	  max-height: 500px; /* Larger images on smaller screens */
+	}
+  }
+  
+  /* Smooth layout reload for Masonry on screen resize */
+  @media screen and (max-width: 1200px) {
+	.masonry-grid {
+	  display: flex;
+	  flex-wrap: wrap;
+	  justify-content: center;
+	}
+  }
+  
+  .masonry-item img,
+  .masonry-item video {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 5px;
+  }
+  
+  /* Hover Effects - Subtle Zoom-in */
+  .masonry-item:hover {
+	transform: scale(1.03); /* Slight zoom-in effect */
+	border-radius: 12px; /* Smooth rounded effect */
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for lifting effect */
+	z-index: 10; /* Bring hovered item to the front */
+  }
+  
+  .masonry-link:focus {
+	outline: none; /* Remove blue focus border */
   }
   
   .masonry-link {
@@ -642,34 +647,30 @@ ol {
 	overflow: hidden;
   }
   
-
-  
-  .masonry-item img,
-  .masonry-item video {
-	display: block;
-	width: 100%;
-	height: auto; /* Maintain aspect ratio */
-	border-radius: 5px; /* Optional: add rounded corners */
-  }
-
   .masonry-link:hover .masonry-img {
-	transform: scale(1.05);  /* Slight zoom effect */
+	transform: scale(1.05); /* Slight zoom effect */
   }
   
   .masonry-link:hover {
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);  /* Add shadow for hover effect */
-	border-radius: 10px;  /* Smooth border radius */
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
   }
+  
+  /* Fix Masonry Layout on Resize */
+  @media (max-width: 1024px) {
+	.masonry-item {
+	  width: calc(50% - 20px); /* Adjust for medium-sized screens */
+	}
+  }
+  
+  @media (max-width: 600px) {
+	.masonry-item {
+	  width: calc(100% - 20px); /* Single column on very small screens */
+	}
+  }
+  
 
-  /* Ensure hidden items (by MixItUp) don't take up space */
-.mix {
-	display: none; /* Default MixItUp behavior */
-	opacity: 0; /* For smoother transitions */
-	transition: all 0.3s ease; /* Smooth animations */
-  }
-  .mixitup-control-active {
-	color: #000; /* Highlight active category button */
-  }
+
   
 
 /*------------------
