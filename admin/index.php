@@ -104,7 +104,7 @@
 <div class="mb-3">
   <label for="category" class="form-label">Category</label>
   <select class="form-select" id="category" name="category" onchange="toggleOtherCategoryInput()">
-   
+   <option value="Other" selected>Other</option>
   </select>
   
   <!-- Input field for new category (hidden initially) -->
@@ -153,85 +153,83 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
   const categorySelect = document.getElementById('category');
-  const newCategoryInput = document.getElementById('newCategoryInput');
-  const newCategoryValue = document.getElementById('newCategory'); // Input for custom category value
+const newCategoryInput = document.getElementById('newCategoryInput'); // Input wrapper
+const newCategoryValue = document.getElementById('newCategory'); // Input field for "Other"
 
-  fetch('get_data.php')
-    .then(response => response.json())
-    .then(data => {
-      console.log('Fetched Media Data for:', data); // Check the response in the console
+// Fetch categories and populate the dropdown
+fetch('get_data.php')
+  .then(response => response.json())
+  .then(data => {
+    console.log('Fetched Media Data for:', data);
 
-      const categories = [];
-      data.forEach(media => {
-        if (media.category && !categories.includes(media.category)) {
-          categories.push(media.category);
-        }
-      });
-
-      console.log('Unique Categories:', categories); // Check unique categories in the console
-
-      categories.forEach(category => {
-        const option = document.createElement('option');
-        option.value = category;
-        option.textContent = category;
-        categorySelect.appendChild(option);
-      });
-    })
-    .catch(error => {
-      console.error('Error fetching media data:', error);
+    const categories = [];
+    data.forEach(media => {
+      if (media.category && !categories.includes(media.category)) {
+        categories.push(media.category);
+      }
     });
 
-  // Submit handler for the form
-  document.getElementById('uploadForm').addEventListener('submit', function (e) {
-    e.preventDefault();
+    console.log('Unique Categories:', categories);
 
-    // If "Other" is selected and a new category is provided, change the category value
-    if (categorySelect.value === 'Other' && newCategoryValue.value.trim() !== '') {
-      categorySelect.value = newCategoryValue.value.trim(); // Override with the custom category value
-    }
-
-    // Check if category is set before submitting the form
-    if (!categorySelect.value.trim()) {
-      alert('Please select or enter a category!');
-      return;
-    }
-
-    // Add the custom category value (if any) as a hidden input to the form
-    const formData = new FormData(this);
-    // If 'Other' is selected, append the custom category value to the form
-    if (categorySelect.value === 'Other' && newCategoryValue.value.trim() !== '') {
-      formData.append('category', newCategoryValue.value.trim()); // Append the custom category
-    }
-
-    fetch('uploads.php', {
-      method: 'POST',
-      body: formData
-    })
-      .then(response => {
-        if (response.ok) {
-          new bootstrap.Modal(document.getElementById('successModal')).show();
-        } else {
-          throw new Error('Upload failed');
-        }
-      })
-      .catch(error => {
-        console.error(error);
-        new bootstrap.Modal(document.getElementById('failureModal')).show();
-      });
+    categories.forEach(category => {
+      const option = document.createElement('option');
+      option.value = category;
+      option.textContent = category;
+      categorySelect.appendChild(option);
+    });
+  })
+  .catch(error => {
+    console.error('Error fetching media data:', error);
   });
 
-  // Function to toggle the visibility of the input for the "Other" category
-  function toggleOtherCategoryInput() {
-    const categorySelect = document.getElementById('category');
-    const newCategoryInput = document.getElementById('newCategoryInput');
+// Submit handler for the form
+document.getElementById('uploadForm').addEventListener('submit', function (e) {
+  e.preventDefault();
 
-    // Show the input if 'Other' is selected, otherwise hide it
-    if (categorySelect.value === 'Other') {
-      newCategoryInput.style.display = 'block';
+  const formData = new FormData(this);
+
+  if (categorySelect.value === 'Other') {
+    if (newCategoryValue.value.trim() !== '') {
+      formData.set('category', newCategoryValue.value.trim());
     } else {
-      newCategoryInput.style.display = 'none';
+      alert('Please enter a new category name!');
+      return;
     }
   }
+
+  if (!formData.get('category')) {
+    alert('Please select or enter a category!');
+    return;
+  }
+
+  console.log('Category being sent:', formData.get('category'));
+
+  fetch('uploads.php', {
+    method: 'POST',
+    body: formData
+  })
+    .then(response => {
+      if (response.ok) {
+        new bootstrap.Modal(document.getElementById('successModal')).show();
+      } else {
+        throw new Error('Upload failed');
+      }
+    })
+    .catch(error => {
+      console.error(error);
+      new bootstrap.Modal(document.getElementById('failureModal')).show();
+    });
+});
+
+// Toggle input visibility for "Other"
+function toggleOtherCategoryInput() {
+  if (categorySelect.value === 'Other') {
+    newCategoryInput.style.display = 'block';
+  } else {
+    newCategoryInput.style.display = 'none';
+  }
+}
+
 </script>
 
 
