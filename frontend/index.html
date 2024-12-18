@@ -49,6 +49,9 @@
 			<li>
 				<a href="portfolio.html">Portfolio</a></li>
 			</li>
+			<li>
+				<a href="gallery-folder.html">Folder Gallery</a></li>
+			</li>
 			
 			<li><a href="contact.html">Contact</a></li>
 		</ul>
@@ -57,9 +60,30 @@
 	<div class="clearfix"></div>
 	<!-- Header section end  -->
 
+
+  <div class="container-fluid carousel-container">
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <!-- Placeholder Items -->
+        <div class="carousel-item active">
+          <img src="../uploads/placeholder1.jpg" class="d-block w-100 carousel-image" alt="Placeholder Image 1">
+        </div>
+        <div class="carousel-item">
+          <img src="../uploads/placeholder2.jpg" class="d-block w-100 carousel-image" alt="Placeholder Image 2">
+        </div>
+        <div class="carousel-item">
+          <img src="../uploads/placeholder3.jpg" class="d-block w-100 carousel-image" alt="Placeholder Image 3">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
 	<!-- Hero section  -->
 	<div class="hero-section">
         <div class="container-fluid">
+         
             <!-- Masonry Grid -->
             <div id="media-gallery" class="masonry-grid">
                 <!-- Media items will be dynamically added here -->
@@ -192,6 +216,7 @@
 
 	<!--====== Javascripts & Jquery ======-->
 	<script src="js/jquery-3.2.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.slicknav.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
@@ -204,6 +229,14 @@
     <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <script src="js/script.js"></script>
+    <script>
+       // Initialize the carousel with a 5-second interval
+  const carousel = document.querySelector('#carouselExample');
+  const bootstrapCarousel = new bootstrap.Carousel(carousel, {
+    interval: 5000, // 5 seconds
+    ride: 'carousel'
+  });
+    </script>
 
 
 

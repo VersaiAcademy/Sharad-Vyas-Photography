@@ -1,29 +1,79 @@
-// async function fetchMedia() {
-//     try {
-//       const response = await fetch('get_media.php');
-//       const data = await response.json();
-  
-//       const gallery = document.getElementById('media-gallery');
-//       data.forEach(item => {
-//         const mediaElement = document.createElement('div');
-//         mediaElement.classList.add('media-item');
-  
-//         if (item.media_type === 'photo') {
-//           mediaElement.innerHTML = `<img src="${item.media_url}" alt="${item.title}" />`;
-//         } else if (item.media_type === 'video') {
-//           mediaElement.innerHTML = `<video controls>
-//                                       <source src="${item.media_url}" type="video/mp4">
-//                                     </video>`;
-//         }
-  
-//         gallery.appendChild(mediaElement);
-//       });
-//     } catch (error) {
-//       console.error('Error fetching media:', error);
-//     }
-//   }
-  
-//   fetchMedia();
+function fetchFolderData() {
+  // Send a request to the PHP script to get the folder data
+  fetch('get_media_folder.php')
+      .then(response => response.json())
+      .then(folderData => renderFolderPortfolio(folderData))
+      .catch(error => console.error('Error fetching folder data:', error));
+}
+
+function renderFolderPortfolio(folderData) {
+  const gallery = document.getElementById('folder-gallery');
+  gallery.classList.add('masonry-grid'); // Add Masonry grid class (if needed)
+
+  const fragment = document.createDocumentFragment(); // Use fragment for performance
+
+  // Sort the folders by date in descending order (most recent first)
+  const sortedFolders = folderData
+      .sort((a, b) => new Date(b.date_uploaded) - new Date(a.date_uploaded));
+
+  sortedFolders.forEach(folder => {
+      // Create a new div for each folder item
+      const folderElement = document.createElement('div');
+      folderElement.classList.add('mix', 'grid-item'); // Add classes for grid item and mix
+
+      // Create the grid portfolio div
+      const gridPortfolio = document.createElement('div');
+      gridPortfolio.classList.add('grid-portfolio');
+
+      // Add the thumbnail image
+      const thumbnail = document.createElement('img');
+      thumbnail.src = folder.thumbnail_url; // Set the thumbnail URL
+      thumbnail.alt = folder.title; // Set the alt text
+      thumbnail.classList.add('portfolio-img');
+
+      // Create and add the folder title
+      const title = document.createElement('h6');
+      title.textContent = folder.title;
+
+      // Create and add the description (date uploaded)
+      const description = document.createElement('p');
+      description.textContent = folder.description
+
+      
+
+      // Append the thumbnail, title, and description to the grid portfolio
+      gridPortfolio.appendChild(thumbnail);
+      gridPortfolio.appendChild(title);
+      gridPortfolio.appendChild(description);
+
+   // Add a click event listener to redirect to the folder's link
+   folderElement.addEventListener('click', () => {
+    // Check if the folder.link has a protocol (http or https)
+    const folderLink = folder.folder_link.startsWith('http') || folder.folder_link.startsWith('https') 
+      ? folder.folder_link 
+      : window.location.origin + '/' + folder.folder_link;
+
+    // Redirect to the folder link
+    window.location.href = folderLink;
+});
+
+      // Append the grid portfolio to the folder element
+      folderElement.appendChild(gridPortfolio);
+
+      // Append the folder element to the fragment
+      fragment.appendChild(folderElement);
+  });
+
+  // Append the fragment to the gallery
+  gallery.appendChild(fragment);
+
+  // Optional: Recalculate Masonry layout after adding new items
+  initializeMasonry();
+}
+
+// Call the function to fetch and render the folder data when the page is loaded
+fetchFolderData();
+
   
 
 async function fetchMedia() {
@@ -39,6 +89,7 @@ async function fetchMedia() {
       renderPortfolioMedia(data, 'all');   // Render all media initially
     } else if (window.location.pathname.includes("index")) {
       renderHomePageMedia(data);    // Render home page media
+      renderCarouselPhotos(data);
     } else {
       console.log("No render function for this page");
     }
@@ -196,7 +247,12 @@ function renderHomePageMedia(mediaData) {
 
   const fragment = document.createDocumentFragment(); // Use fragment for performance
 
-  mediaData.forEach(item => {
+    // Sort mediaData by date in descending order (most recent first) and take the first 25 items
+    const recentMedia = mediaData
+    .sort((a, b) => new Date(b.date) - new Date(a.date)) // Sort by date descending
+    .slice(0, 25); // Take only the first 25 items
+
+  recentMedia.forEach(item => {
     const mediaElement = document.createElement('div');
     mediaElement.classList.add('media-item', 'masonry-item');
 
@@ -237,6 +293,46 @@ function renderHomePageMedia(mediaData) {
   // Lazy load images (optional, if you plan to implement it later)
   // lazyLoadImages();
 }
+
+// Carousel
+function renderCarouselPhotos(photoData) {
+  // Select the carousel inner container
+  const carouselInner = document.querySelector('#carouselExample .carousel-inner');
+  
+  // Clear existing carousel items
+  carouselInner.innerHTML = '';
+
+   // Filter only photo media types
+   const photos = photoData.filter(photo => photo.media_type === 'photo');
+  
+   if (photos.length === 0) {
+     console.error("No photos available for the carousel.");
+     return;
+   }
+
+  // Shuffle the photoData to ensure randomness
+  const shuffledPhotos = photos.sort(() => 0.5 - Math.random());
+
+  // Get only 10 random photos
+  const selectedPhotos = shuffledPhotos.slice(0, 10);
+
+  // Loop through the selected photos and create carousel items
+  selectedPhotos.forEach((photo, index) => {
+    const carouselItem = document.createElement('div');
+    carouselItem.classList.add('carousel-item');
+    if (index === 0) carouselItem.classList.add('active'); // Make the first item active
+
+    carouselItem.innerHTML = `
+      <img src="${photo.media_url}" class="d-block w-100 carousel-image" alt="${photo.title || 'Photo'}">
+    `;
+
+    // Append the item to the carousel-inner container
+    carouselInner.appendChild(carouselItem);
+  });
+
+  console.log('Carousel updated with random photos.');
+}
+
 
 
 

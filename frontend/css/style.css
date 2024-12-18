@@ -774,7 +774,7 @@ ol {
   /* Sample animation */
   /* From Uiverse.io by vinodjangid07 */ 
 .loaderr {
-	width: fit-content;a
+	width: fit-content;
 	height: fit-content;
 	display: flex;
 	align-items: center;
@@ -850,6 +850,37 @@ ol {
 	100% {
 	  color: transparent;
 	}
+  }
+  /* CAROUSEL */
+  .carousel-container {
+    height: 50vh; /* Set the carousel container height to 50% of the viewport */
+  }
+
+  .carousel-container .carousel {
+    height: 100%; /* Ensure the carousel takes full height of its container */
+  }
+
+  .carousel-container .carousel-inner {
+    height: 100%; /* Ensure the carousel inner items take full height */
+  }
+
+  .carousel-container .carousel-item img {
+    height: 100%; /* Make the images fill the container height */
+    object-fit: cover; /* Ensure the images cover the container */
+  }
+
+  .carousel-item-wrapper {
+	display: flex;
+	justify-content: center; /* Center horizontally */
+	align-items: center;     /* Center vertically */
+	height: 500px;           /* Adjust height as per your layout */
+	overflow: hidden;
+  }
+  
+  .carousel-image {
+	width: 100%;       /* Fill the width of the container */
+	height: 100%;      /* Fill the height of the container */
+	object-fit: cover; /* Cover the container without distorting the aspect ratio */
   }
   
 
