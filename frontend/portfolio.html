@@ -98,32 +98,33 @@
 <!-- Modal -->
 <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg">
-	  <div class="modal-content">
-		<div class="modal-header">
-		  <h5 class="modal-title" id="imageModalLabel">Image Title</h5>
+	  <div class="modal-content bg-white shadow-xl rounded-lg">
+		<div class="modal-header border-b-2 border-gray-300 p-4">
+		  <h5 class="modal-title text-xl font-semibold text-gray-800" id="imageModalLabel">Image Title</h5>
 		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
-		<div class="modal-body">
+		<div class="modal-body p-4">
 		  <!-- Image and details -->
-		  <div class="row">
-			<div class="col-md-8">
-			  <img src="" alt="" class="img-fluid" id="modalImage" />
+		  <div class="grid md:grid-cols-2 gap-4">
+			<div class="flex justify-center items-center">
+			  <img src="" alt="" class="img-fluid max-w-full rounded-lg shadow-lg" id="modalImage" />
 			</div>
-			<div class="col-md-4">
-			  <h6>Description:</h6>
-			  <p id="modalDescription"></p>
-			  <p><strong>Category:</strong> <span id="modalCategory"></span></p>
-			  <p><strong>Date:</strong> <span id="modalDate"></span></p>
-			  <p><strong>Caption:</strong> <span id="modalCaption"></span></p>
+			<div class="space-y-4">
+			  <h6 class="text-lg font-medium text-gray-800">Description:</h6>
+			  <p id="modalDescription" class="text-gray-600"></p>
+			  <p><strong class="font-semibold text-gray-700">Category:</strong> <span id="modalCategory" class="text-gray-600"></span></p>
+			  <p><strong class="font-semibold text-gray-700">Date:</strong> <span id="modalDate" class="text-gray-600"></span></p>
+			  <p><strong class="font-semibold text-gray-700">Caption:</strong> <span id="modalCaption" class="text-gray-600"></span></p>
 			</div>
 		  </div>
 		</div>
-		<div class="modal-footer">
-		  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+		<div class="modal-footer p-4">
+		  <button type="button" class="btn btn-secondary px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700" data-bs-dismiss="modal">Close</button>
 		</div>
 	  </div>
 	</div>
   </div>
+  
   
   
 
