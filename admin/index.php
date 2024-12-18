@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin - Upload Media</title>
-  
+
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
@@ -45,7 +45,7 @@
 
   <div class="admin-container">
     <h1>Upload Media</h1>
-    <form action="uploads.php" method="POST" enctype="multipart/form-data">
+    <form id="uploadForm" action="uploads.php" method="POST" enctype="multipart/form-data">
       <!-- File Input -->
       <div class="mb-3">
         <label for="file" class="form-label">Select File</label>
@@ -87,7 +87,59 @@
     </form>
   </div>
 
+  <!-- Success Modal -->
+  <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="successModalLabel">Success</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Media uploaded successfully!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Failure Modal -->
+  <div class="modal fade" id="failureModal" tabindex="-1" aria-labelledby="failureModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="failureModalLabel">Error</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Failed to upload media. Please try again.
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('uploadForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      fetch('uploads.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => {
+        if (response.ok) {
+          new bootstrap.Modal(document.getElementById('successModal')).show();
+        } else {
+          throw new Error('Upload failed');
+        }
+      })
+      .catch(error => {
+        console.error(error);
+        new bootstrap.Modal(document.getElementById('failureModal')).show();
+      });
+    });
+  </script>
 </body>
 </html>
