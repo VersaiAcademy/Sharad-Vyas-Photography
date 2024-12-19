@@ -23,8 +23,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $thumbnailPath = $uploadDir . $thumbnailName;
 
         if (move_uploaded_file($thumbnailTmp, $thumbnailPath)) {
-            // Assuming base URL is localhost/photographer-2-master
-            $baseUrl = "http://localhost/photographer-2-master/";
+            // Determine base URL based on the environment
+            if ($_SERVER['HTTP_HOST'] === 'localhost') {
+                // For local development
+                $baseUrl = "http://localhost/photographer-2-master/";
+            } else {
+                // For production (live server)
+                $baseUrl = "https://sharad.com/";
+            }
+
+            // Generate thumbnail URL
             $thumbnailUrl = $baseUrl . 'uploads/thumbnails/' . $thumbnailName;
         }
     }

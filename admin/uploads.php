@@ -31,6 +31,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['files'])) {
 
     $allowedMimeTypes = ['image/jpeg', 'image/png', 'video/mp4', 'video/webm'];
 
+    // Determine the base URL based on the environment
+    if ($_SERVER['HTTP_HOST'] === 'localhost') {
+        // For local development
+        $baseUrl = "http://localhost/photographer-2-master/";
+    } else {
+        // For production (live server)
+        $baseUrl = "https://sharad.com/";
+    }
+
     // Loop through each uploaded file
     for ($i = 0; $i < count($files['name']); $i++) {
         $tmpFilePath = $files['tmp_name'][$i];
@@ -59,7 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['files'])) {
 
         if (move_uploaded_file($tmpFilePath, $filePath)) {
             // Generate media URL
-            $baseUrl = "http://localhost/photographer-2-master/";
             $mediaUrl = $baseUrl . 'uploads/' . $uniqueFileName;
 
             // Media type detection

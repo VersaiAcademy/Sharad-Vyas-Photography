@@ -1,6 +1,16 @@
 function fetchFolderData() {
+  // Dynamically determine the base URL
+   // Check if the current environment is production or local development
+   let baseUrl = '';
+   if (window.location.hostname === 'localhost') {
+     // For local development
+     baseUrl = `${window.location.origin}/photographer-2-master/frontend`;
+   } else {
+     // For production (live server)
+     baseUrl = `${window.location.origin}/frontend`; // Use sharad.com/frontend
+   }
   // Send a request to the PHP script to get the folder data
-  fetch('get_media_folder.php')
+  fetch(`${baseUrl}/get_media_folder.php`)
       .then(response => response.json())
       .then(folderData => renderFolderPortfolio(folderData))
       .catch(error => console.error('Error fetching folder data:', error));
@@ -81,8 +91,18 @@ fetchFolderData();
 
 async function fetchMedia() {
   try {
+      // Check if the current environment is production or local development
+      let baseUrl = '';
+      if (window.location.hostname === 'localhost') {
+        // For local development
+        baseUrl = `${window.location.origin}/photographer-2-master/frontend`;
+      } else {
+        // For production (live server)
+        baseUrl = `${window.location.origin}/frontend`; // Use sharad.com/frontend
+      }
+
     console.log('fetchMedia function is called'); 
-    const response = await fetch('get_media.php');
+    const response = await fetch(`${baseUrl}/get_media.php`);
     const data = await response.json();
     console.log('Fetched Media:', data); // Debugging line to check fetched data
 
