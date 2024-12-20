@@ -7,7 +7,7 @@ function fetchFolderData() {
      baseUrl = `${window.location.origin}/photographer-2-master/frontend`;
    } else {
      // For production (live server)
-     baseUrl = `${window.location.origin}/frontend`; // Use sharad.com/frontend
+     baseUrl = `${window.location.origin}/frontend`; // Use sharadvyasphotography.com/frontend
    }
   // Send a request to the PHP script to get the folder data
   fetch(`${baseUrl}/get_media_folder.php`)
@@ -98,7 +98,7 @@ async function fetchMedia() {
         baseUrl = `${window.location.origin}/photographer-2-master/frontend`;
       } else {
         // For production (live server)
-        baseUrl = `${window.location.origin}/frontend`; // Use sharad.com/frontend
+        baseUrl = `${window.location.origin}/frontend`; // Use sharadvyasphotography.com/frontend
       }
 
     console.log('fetchMedia function is called'); 

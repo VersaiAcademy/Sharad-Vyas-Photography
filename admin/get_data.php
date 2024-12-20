@@ -7,7 +7,7 @@ if ($_SERVER['HTTP_HOST'] === 'localhost') {
     $baseUrl = "http://localhost/photographer-2-master/uploads/";
 } else {
     // For production (live server)
-    $baseUrl = "https://sharad.com/uploads/";
+    $baseUrl = "https://sharadvyasphotography.com/uploads/";
 }
 
 // Fetch media from the database

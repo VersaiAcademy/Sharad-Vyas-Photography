@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['files'])) {
         $baseUrl = "http://localhost/photographer-2-master/";
     } else {
         // For production (live server)
-        $baseUrl = "https://sharad.com/";
+        $baseUrl = "https://sharadvyasphotography.com/";
     }
 
     // Loop through each uploaded file

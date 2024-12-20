@@ -34,21 +34,22 @@
 		<div class="loader"></div>
 	</div>
 
-	<!-- Header section -->
-	<header class="header-section">
-		<a href="./index.php" class="site-logo"><img src="./img/vyasjilogonew.png" alt="logo"></a>
-		<div class="header-controls">
-			<button class="nav-switch-btn"><i class="fa fa-bars"></i></button>
-			<button class="search-btn"><i class="fa fa-search"></i></button>
-		</div>
-		<ul class="main-menu">
-			<li><a href="./index.php">Home</a></li>
-			<li><a href="./about.php">About the Artist</a></li>
-			<li><a href="./portfolio.php">Portfolio</a></li>
-			<li><a href="./gallery-folder.php">Folder Gallery</a></li>
-			<li><a href="./contact.php">Contact</a></li>
-		</ul>
-	</header>
+	<!-- Header section  -->
+	<?php include('./config.php'); ?>
+<header class="header-section hs-bd">
+    <a href="<?php echo BASE_URL; ?>index.php" class="site-logo"><img src="<?php echo BASE_URL; ?>img/vyasjilogonew.png" alt="logo"></a>
+    <div class="header-controls">
+        <button class="nav-switch-btn"><i class="fa fa-bars"></i></button>
+        <button class="search-btn"><i class="fa fa-search"></i></button>
+    </div>
+    <ul class="main-menu">
+        <li><a href="<?php echo BASE_URL; ?>index.php">Home</a></li>
+        <li><a href="<?php echo BASE_URL; ?>frontend/about.php">About the Artist</a></li>
+        <li><a href="<?php echo BASE_URL; ?>frontend/portfolio.php">Portfolio</a></li>
+        <li><a href="<?php echo BASE_URL; ?>frontend/gallery-folder.php">Folder Gallery</a></li>
+        <li><a href="<?php echo BASE_URL; ?>frontend/contact.php">Contact</a></li>
+    </ul>
+</header>
 
 	<div class="clearfix"></div>
 	<!-- Header section end -->

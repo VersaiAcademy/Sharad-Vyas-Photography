@@ -1,8 +1,8 @@
 <?php
-$host = 'localhost';   // Database host
-$username = 'root';    // Database username
-$password = '';        // Database password
-$dbname = 'media_gallery';  // Database name
+$host = '82.180.167.190';   // Database host
+$username = 'u358688394_vyasphotograph';    // Database username
+$password = 'vyasphotograph09VP';        // Database password
+$dbname = 'u358688394_vyasphotograph';  // Database name
 
 // Create connection
 $db = new mysqli($host, $username, $password, $dbname);

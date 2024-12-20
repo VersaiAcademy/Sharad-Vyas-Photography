@@ -3,7 +3,7 @@
 if ($_SERVER['HTTP_HOST'] === 'localhost') {
     $base_url = 'http://localhost/photographer-2-master/';
 } else {
-    $base_url = 'https://sharadphoto.com/';
+    $base_url = 'https://sharadvyasphotography.com/';
 }
 
 // Define the base URL for frontend and admin
