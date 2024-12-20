@@ -1,13 +1,13 @@
 <?php
-$host = '82.180.167.190';   // Database host
-$username = 'u358688394_vyasphotograph';    // Database username
-$password = 'vyasphotograph09VP';        // Database password
-$dbname = 'u358688394_vyasphotograph';  // Database name
+$host = '147.93.17.45';   
+$username = 'u983525168_photography';   
+$password = 'H9TZEggdda8';       
+$dbname = 'u983525168_photography';  
 
-// Create connection
+
 $db = new mysqli($host, $username, $password, $dbname);
 
-// Check connection
+
 if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
 }
