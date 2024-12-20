@@ -70,7 +70,7 @@
 						<!-- <p>Company INC, Management INc, Photo album INC, Magnum Express, Fachion Gala, Unnamed, </p>
 						<h4>Editorials</h4>
 						<p>Vougue, Elle, Company INC, Management INc, Photo album INC, Fashion Week, Fachion Gala, Unnamed, Vanity Fair, Vougue IT</p> -->
-						<a href="<?php echo BASE_URL; ?>/frontend/contact.php" class="site-btn">Contact me</a>
+						<a href="<?php echo BASE_URL; ?>frontend/contact.php" class="site-btn">Contact me</a>
 					</div>
 				</div>
 			</div>
