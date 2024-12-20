@@ -145,7 +145,7 @@
     setTimeout(() => {
       masonryInstance.reloadItems();
       masonryInstance.layout(); // Force Masonry to recalculate layout
-    }, 200); // Small delay ensures DOM changes are applied
+    }, 200); // Small delay ensures DOM changes arse applied
   });
 });
 

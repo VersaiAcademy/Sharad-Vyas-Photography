@@ -190,7 +190,7 @@ function renderPortfolioMedia(mediaData) {
     if (window.location.hostname === 'localhost') {
       baseUrl = `${window.location.origin}/photographer-2-master/frontend`;
     } else {
-      baseUrl = `${window.location.origin}/frontend`; // For live server
+      baseUrl = `${window.location.origin}`; // For live server
     }
   const gallery = document.getElementById('portfolio-gallery');
   gallery.classList.add('masonry-grid'); // Add Masonry grid class
@@ -216,7 +216,7 @@ function renderPortfolioMedia(mediaData) {
     // Handle photo media type
     if (item.media_type === 'photo') {
       mediaLink.innerHTML = ` 
-        <img src="${baseUrl}/${item.media_url}" alt="${item.title}" class="masonry-img" />
+        <img src="${item.media_url}" alt="${item.title}" class="masonry-img" />
      `;
     }
 
@@ -224,7 +224,7 @@ function renderPortfolioMedia(mediaData) {
     if (item.media_type === 'video') {
       mediaLink.innerHTML = `
         <video autoplay muted loop class="masonry-img">
-          <source src="${baseUrl}/${item.media_url}" type="video/mp4">
+          <source src="${item.media_url}" type="video/mp4">
          </video>
       `;
     }
