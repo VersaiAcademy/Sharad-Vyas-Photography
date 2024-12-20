@@ -286,6 +286,14 @@ function renderHomePageMedia(mediaData) {
 
   const fragment = document.createDocumentFragment(); // Use fragment for performance
 
+   // Determine base URL based on the environment
+   let baseUrl = '';
+   if (window.location.hostname === 'localhost') {
+     baseUrl = `${window.location.origin}/photographer-2-master/frontend`;
+   } else {
+     baseUrl = `${window.location.origin}/frontend`; // For live server
+   }
+
     // Sort mediaData by date in descending order (most recent first) and take the first 25 items
     const recentMedia = mediaData
     .sort((a, b) => new Date(b.date) - new Date(a.date)) // Sort by date descending
@@ -297,7 +305,7 @@ function renderHomePageMedia(mediaData) {
 
     // Create a link that redirects to portfolio.html when clicked
     const mediaLink = document.createElement('a');
-    mediaLink.href = '/photographer-2-master/frontend/portfolio.html';  // Redirect to portfolio page
+    mediaLink.href = `${baseUrl}/portfolio.html`; // Dynamically construct the URL
     mediaLink.classList.add('masonry-link');
 
     // Handle photo media type

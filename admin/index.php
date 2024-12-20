@@ -99,7 +99,7 @@ include_once '../config.php';
     const uniqueCategories = new Set();
     data.forEach(item => {
       if (item.category) {
-        uniqueCategories.add(item.category); // Add category to the Set
+        uniqueCategories.add(item.category); // Add catesgory to the Set
       }
     });
 
