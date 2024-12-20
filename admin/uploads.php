@@ -1,6 +1,7 @@
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
+include('../config.php'); // Include config for dynamic URLs
 include('../includes/db.php');
 
 // Check database connection
@@ -88,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['files'])) {
     }
 
     // Redirect back to index.php
-    header("Location: /photographer-2-master/admin/index.php");
+    header("Location: " . ADMIN_URL . "index.php");
     exit;
 } else {
     echo "No files uploaded.";
