@@ -211,7 +211,7 @@ function renderPortfolioMedia(mediaData) {
     mediaLink.setAttribute('data-description', item.description);  // Store description
     mediaLink.setAttribute('data-category', item.category);  // Store category
     mediaLink.setAttribute('data-date', item.date);  // Store date
-    mediaLink.setAttribute('data-media-url', `${baseUrl}/${item.media_url}`);  // Store media URL for image/video
+    mediaLink.setAttribute('data-media-url', item.media_url);  // Store media URL for image/video
 
     // Handle photo media type
     if (item.media_type === 'photo') {
