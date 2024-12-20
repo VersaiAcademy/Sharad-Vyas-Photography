@@ -11,7 +11,7 @@ if ($_SERVER['HTTP_HOST'] === 'localhost') {
 }
 
 // Fetch media from the database
-$query = "SELECT * FROM media ORDER BY date_uploaded DESC";s
+$query = "SELECT * FROM media ORDER BY date_uploaded DESC";
 $result = mysqli_query($db, $query);
 $mediaArray = [];
 
