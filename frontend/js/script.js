@@ -1,3 +1,12 @@
+let baseUrl = '';
+if (window.location.hostname === 'localhost') {
+  // For local development
+  baseUrl = `${window.location.origin}/photographer-2-master/frontend`;
+} else {
+  // For production (live server)
+  baseUrl = `${window.location.origin}/frontend`; // Use sharadvyasphotography.com/frontend
+}
+
 function fetchFolderData() {
   // Dynamically determine the base URL
    // Check if the current environment is production or local development
@@ -176,6 +185,13 @@ function renderCategoryButtons(mediaData) {
 
 
 function renderPortfolioMedia(mediaData) {
+    // Determine base URL based on the environment
+    let baseUrl = '';
+    if (window.location.hostname === 'localhost') {
+      baseUrl = `${window.location.origin}/photographer-2-master/frontend`;
+    } else {
+      baseUrl = `${window.location.origin}/frontend`; // For live server
+    }
   const gallery = document.getElementById('portfolio-gallery');
   gallery.classList.add('masonry-grid'); // Add Masonry grid class
 
@@ -195,21 +211,21 @@ function renderPortfolioMedia(mediaData) {
     mediaLink.setAttribute('data-description', item.description);  // Store description
     mediaLink.setAttribute('data-category', item.category);  // Store category
     mediaLink.setAttribute('data-date', item.date);  // Store date
-    mediaLink.setAttribute('data-media-url', item.media_url);  // Store media URL for image/video
+    mediaLink.setAttribute('data-media-url', `${baseUrl}/${item.media_url}`);  // Store media URL for image/video
 
     // Handle photo media type
     if (item.media_type === 'photo') {
       mediaLink.innerHTML = ` 
-        <img src="${item.media_url}" alt="${item.title}" class="masonry-img" />
-      `;
+        <img src="${baseUrl}/${item.media_url}" alt="${item.title}" class="masonry-img" />
+     `;
     }
 
     // Handle video media type
     if (item.media_type === 'video') {
       mediaLink.innerHTML = `
         <video autoplay muted loop class="masonry-img">
-          <source src="${item.media_url}" type="video/mp4">
-        </video>
+          <source src="${baseUrl}/${item.media_url}" type="video/mp4">
+         </video>
       `;
     }
 
