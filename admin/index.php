@@ -92,17 +92,28 @@ include_once '../config.php';
     const newCategoryInput = document.getElementById('newCategoryInput');
     const newCategoryValue = document.getElementById('newCategory');
 
-    // Fetch categories dynamically
     fetch('<?php echo ADMIN_URL; ?>get_data.php')
-      .then(response => response.json())
-      .then(data => {
-        data.forEach(category => {
-          const option = document.createElement('option');
-          option.value = category;
-          option.textContent = category;
-          categorySelect.appendChild(option);
-        });
-      });
+  .then(response => response.json())
+  .then(data => {
+    // Extract unique categories from the response
+    const uniqueCategories = new Set();
+    data.forEach(item => {
+      if (item.category) {
+        uniqueCategories.add(item.category); // Add category to the Set
+      }
+    });
+
+    // Append each unique category to the dropdown
+    uniqueCategories.forEach(category => {
+      const option = document.createElement('option');
+      option.value = category;
+      option.textContent = category;
+      categorySelect.appendChild(option);
+    });
+  })
+  .catch(error => {
+    console.error('Error fetching categories:', error);
+  });
 
     // Toggle input for "Other" category
     function toggleOtherCategoryInput() {
