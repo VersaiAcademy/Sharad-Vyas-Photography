@@ -305,7 +305,7 @@ function renderHomePageMedia(mediaData) {
 
     // Create a link that redirects to portfolio.html when clicked
     const mediaLink = document.createElement('a');
-    mediaLink.href = `${baseUrl}/portfolio.html`; // Dynamically construct the URL
+    mediaLink.href = `${baseUrl}/portfolio.php`; // Dynamically construct the URL
     mediaLink.classList.add('masonry-link');
 
     // Handle photo media type
