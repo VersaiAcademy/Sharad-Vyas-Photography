@@ -1,4 +1,5 @@
 <?php
+include('../config.php'); // Include config for dynamic URLs
 include('../includes/db.php');
 
 // Handle form submission
@@ -23,17 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $thumbnailPath = $uploadDir . $thumbnailName;
 
         if (move_uploaded_file($thumbnailTmp, $thumbnailPath)) {
-            // Determine base URL based on the environment
-            if ($_SERVER['HTTP_HOST'] === 'localhost') {
-                // For local development
-                $baseUrl = "http://localhost/photographer-2-master/";
-            } else {
-                // For production (live server)
-                $baseUrl = "https://sharadvyasphotography.com/";
-            }
-
-            // Generate thumbnail URL
-            $thumbnailUrl = $baseUrl . 'uploads/thumbnails/' . $thumbnailName;
+            // Generate thumbnail URL dynamically
+            $thumbnailUrl = BASE_URL . 'uploads/thumbnails/' . $thumbnailName;
         }
     }
 
@@ -43,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (mysqli_query($db, $query)) {
         echo "Folder data saved successfully!";
-        header("Location: /photographer-2-master/admin/index.php");
+        header("Location: " . ADMIN_URL . "index.php");
         exit;
     } else {
         echo "Database error: " . mysqli_error($db);
