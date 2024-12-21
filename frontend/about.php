@@ -60,11 +60,11 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-6 p-0">
-					<div class="about-bg set-bg" data-setbg="../img/sharadji.jpeg"></div>
+					<div class="about-bg set-bg" data-setbg="../img/aboutmesharad.jpg"></div>
 				</div>
 				<div class="col-lg-6 p-0">
 					<div class="about-text">
-						<h2>About Me. Sharad Vyas</h2>
+						<h2>About Me <br/> Sharad Vyas</h2>
 <p>I am Sharad Vyas, a respected judge in the Indian judiciary, committed to upholding justice and integrity. Alongside my professional responsibilities, I have a deep passion for travel and capturing the beauty of life. I find immense joy in exploring new places, discovering hidden corners of the world, and experiencing the unique stories each destination has to offer. Photography allows me to freeze these moments and share the wonders of life through my lens. My journey blends both my legal profession and my love for creativity, inspiring me to appreciate the beauty in both life and law.</p>
 <!-- <h4>My Clients</h4> -->
 						<!-- <p>Company INC, Management INc, Photo album INC, Magnum Express, Fachion Gala, Unnamed, </p>

@@ -851,36 +851,42 @@ ol {
 	  color: transparent;
 	}
   }
-  /* CAROUSEL */
-  .carousel-container {
-    height: 50vh; /* Set the carousel container height to 50% of the viewport */
-  }
-
-  .carousel-container .carousel {
-    height: 100%; /* Ensure the carousel takes full height of its container */
-  }
-
-  .carousel-container .carousel-inner {
-    height: 100%; /* Ensure the carousel inner items take full height */
-  }
-
-  .carousel-container .carousel-item img {
-    height: 100%; /* Make the images fill the container height */
-    object-fit: cover; /* Ensure the images cover the container */
-  }
-
-  .carousel-item-wrapper {
-	display: flex;
-	justify-content: center; /* Center horizontally */
-	align-items: center;     /* Center vertically */
-	height: 500px;           /* Adjust height as per your layout */
-	overflow: hidden;
+/* CAROUSEL */
+.carousel-container {
+	height: 70vh; /* Set the carousel container height to 60% of the viewport */
+	overflow: hidden; /* Prevent overflow of content */
   }
   
-  .carousel-image {
-	width: 100%;       /* Fill the width of the container */
-	height: 100%;      /* Fill the height of the container */
-	object-fit: cover; /* Cover the container without distorting the aspect ratio */
+  .carousel-container .carousel {
+	height: 100%; /* Make the carousel take full height of its container */
+  }
+  
+  .carousel-container .carousel-inner {
+	height: 100%; /* Ensure the carousel-inner fills the height */
+  }
+  
+  .carousel-container .carousel-item {
+	height: 100%; /* Each carousel item should fill the carousel height */
+  }
+  
+  .carousel-container .carousel-item img {
+	width: 100%; /* Ensure the image spans the full width */
+	height: 100%; /* Ensure the image spans the full height */
+	object-fit: cover; /* Crop the image to cover the container */
+	display: block; /* Ensure the image is treated as a block element */
+  }
+  /* For medium screens (tablets) */
+@media (max-width: 768px) {
+	.carousel-container {
+	  height: 55vh; /* Reduce height to 55% of viewport */
+	}
+  }
+  
+  /* For small screens (phones) */
+  @media (max-width: 576px) {
+	.carousel-container {
+	  height: 40vh; /* Reduce height to 40% of viewport */
+	}
   }
   
 
