@@ -1,5 +1,12 @@
 <?php
 // Include the config file for BASE_URL and ADMIN_URL
+session_start();
+
+// Redirect to login if not authenticated
+if (empty($_SESSION['admin_logged_in'])) {
+    header("Location: login.php");
+    exit();
+}
 include_once '../config.php';
 ?>
 <!DOCTYPE html>
@@ -99,18 +106,19 @@ include_once '../config.php';
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    const categorySelect = document.getElementById('category');
-    const newCategoryInput = document.getElementById('newCategoryInput');
-    const newCategoryValue = document.getElementById('newCategory');
+const categorySelect = document.getElementById('category');
+const newCategoryInput = document.getElementById('newCategoryInput');
+const newCategoryValue = document.getElementById('newCategory');
 
-    fetch('<?php echo ADMIN_URL; ?>get_data.php')
+// Fetch categories and add to dropdown
+fetch('<?php echo ADMIN_URL; ?>get_data.php')
   .then(response => response.json())
   .then(data => {
     // Extract unique categories from the response
     const uniqueCategories = new Set();
     data.forEach(item => {
       if (item.category) {
-        uniqueCategories.add(item.category); // Add catesgory to the Set
+        uniqueCategories.add(item.category); // Add category to the Set
       }
     });
 
@@ -126,27 +134,73 @@ include_once '../config.php';
     console.error('Error fetching categories:', error);
   });
 
-    // Toggle input for "Other" category
-    function toggleOtherCategoryInput() {
-      newCategoryInput.style.display = categorySelect.value === 'Other' ? 'block' : 'none';
+// Toggle input for "Other" category
+function toggleOtherCategoryInput() {
+  newCategoryInput.style.display = categorySelect.value === 'Other' ? 'block' : 'none';
+  console.log('Toggled new category input:', categorySelect.value === 'Other');
+}
+
+// Handle form submission
+document.getElementById('uploadForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  
+  // Log the selected category before submitting
+  console.log('Selected category before submitting:', categorySelect.value);
+  
+  // Correctly log the value of the new category input
+  console.log('New Selected category before submitting:', newCategoryValue.value);
+  
+  // Check if "Other" is selected and a new category is entered
+  if (categorySelect.value === 'Other') {
+    if (!newCategoryValue.value.trim()) {
+      alert('Please enter a new category name!');
+      console.log('New category input is empty!');
+      return;
+    } else {
+      // Set the value of the new category in the categorySelect value
+      categorySelect.value = newCategoryValue.value.trim();
+      console.log('New category entered:', categorySelect.value);
     }
+  }
 
-    document.getElementById('uploadForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const formData = new FormData(this);
+  // Log the final category value to be submitted
+  console.log('Final category value to be submitted:', categorySelect.value);
 
-      if (categorySelect.value === 'Other' && !newCategoryValue.value.trim()) {
-        alert('Please enter a new category name!');
-        return;
-      }
+  // Ensure categorySelect.value is updated before submitting form
+  const formData = new FormData(this);
 
-      fetch('<?php echo ADMIN_URL; ?>uploads.php', {
-        method: 'POST',
-        body: formData
-      })
-      .then(response => response.ok ? alert('Success') : alert('Failed'))
-      .catch(error => console.error('Error:', error));
-    });
+  // Check if "Other" is selected and append the correct category
+  if (categorySelect.value === 'Other' && newCategoryValue.value.trim()) {
+    console.log("New category value at last", newCategoryValue.value.trim());
+    formData.append('category', newCategoryValue.value.trim()); // Append new category if "Other"
+  } else {
+    formData.append('category', categorySelect.value); // Append selected category if not "Other"
+  }
+
+  // Log the form data to verify it's being sent correctly
+  for (let [key, value] of formData.entries()) {
+    console.log(key + ': ' + value);
+  }
+
+  // Perform the actual form submission
+  fetch('<?php echo ADMIN_URL; ?>uploads.php', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => {
+    if (response.ok) {
+      alert('Success');
+      console.log('Upload successful');
+    } else {
+      alert('Failed');
+      console.log('Upload failed');
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+});
+
   </script>
 </body>
 </html>

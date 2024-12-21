@@ -1,5 +1,12 @@
 <?php
+session_start();
 include_once 'config.php';
+
+// Redirect to login if not authenticated
+if (empty($_SESSION['admin_logged_in'])) {
+    header("Location: login.php");
+    exit();
+}
 ?>
 
 
