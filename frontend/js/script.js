@@ -185,13 +185,14 @@ function renderCategoryButtons(mediaData) {
 
 
 function renderPortfolioMedia(mediaData) {
-    // Determine base URL based on the environment
-    let baseUrl = '';
-    if (window.location.hostname === 'localhost') {
-      baseUrl = `${window.location.origin}/photographer-2-master/frontend`;
-    } else {
-      baseUrl = `${window.location.origin}`; // For live server
-    }
+  // Determine base URL based on the environment
+  let baseUrl = '';
+  if (window.location.hostname === 'localhost') {
+    baseUrl = `${window.location.origin}/photographer-2-master/frontend`;
+  } else {
+    baseUrl = `${window.location.origin}`; // For live server
+  }
+
   const gallery = document.getElementById('portfolio-gallery');
   gallery.classList.add('masonry-grid'); // Add Masonry grid class
 
@@ -210,7 +211,7 @@ function renderPortfolioMedia(mediaData) {
     mediaLink.setAttribute('data-caption', item.caption);  // Store caption
     mediaLink.setAttribute('data-description', item.description);  // Store description
     mediaLink.setAttribute('data-category', item.category);  // Store category
-    mediaLink.setAttribute('data-date', item.date);  // Store date
+    mediaLink.setAttribute('data-date-uploaded', item.date_uploaded);  // Store date_uploaded from API
     mediaLink.setAttribute('data-media-url', item.media_url);  // Store media URL for image/video
 
     // Handle photo media type
@@ -242,32 +243,50 @@ function renderPortfolioMedia(mediaData) {
   // Recalculate Masonry layout after adding new items
   initializeMasonry();
 
-  // Optional: Lazy load images or implement any other feature
-  // lazyLoadImages();
   // Event listener to fill the modal dynamically when an image or video is clicked
-document.querySelectorAll('.masonry-link').forEach(link => {
-  link.addEventListener('click', (event) => {
-    // Fetch the data from the clicked media item
-    const title = event.currentTarget.getAttribute('data-title');
-    const caption = event.currentTarget.getAttribute('data-caption');
-    const description = event.currentTarget.getAttribute('data-description');
-    const category = event.currentTarget.getAttribute('data-category');
-    const date = event.currentTarget.getAttribute('data-date');
-    const mediaUrl = event.currentTarget.getAttribute('data-media-url');
+  document.querySelectorAll('.masonry-link').forEach(link => {
+    link.addEventListener('click', (event) => {
+      // Fetch the data from the clicked media item
+      const title = event.currentTarget.getAttribute('data-title');
+      const caption = event.currentTarget.getAttribute('data-caption');
+      const description = event.currentTarget.getAttribute('data-description');
+      const category = event.currentTarget.getAttribute('data-category');
+      const dateUploaded = event.currentTarget.getAttribute('data-date-uploaded');  // Get the date_uploaded
+      const mediaUrl = event.currentTarget.getAttribute('data-media-url');
 
-    // Log the fetched data to verify it's correct
-    console.log({ title, caption, description, category, date, mediaUrl });
+      // Log the fetched data to verify it's correct
+      console.log({ title, caption, description, category, dateUploaded, mediaUrl });
 
-    // Populate the modal
-    document.getElementById('imageModalLabel').textContent = title;
-    document.getElementById('modalImage').src = mediaUrl;
-    document.getElementById('modalDescription').textContent = description;
-    document.getElementById('modalCategory').textContent = category;
-    document.getElementById('modalDate').textContent = date;
-    document.getElementById('modalCaption').textContent = caption;
+      // Format the date
+      const formattedDate = formatDate(dateUploaded);
+
+      // Populate the modal
+      document.getElementById('imageModalLabel').textContent = title;
+      document.getElementById('modalImage').src = mediaUrl;
+      document.getElementById('modalDescription').textContent = description;
+      document.getElementById('modalCategory').textContent = category;
+      document.getElementById('modalDate').textContent = formattedDate;  // Display the formatted date
+      document.getElementById('modalCaption').textContent = caption;
+    });
   });
-});
 }
+
+// Function to format the date as "18th December 2024"
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  const day = date.getDate();
+  const month = date.toLocaleString('default', { month: 'long' }); // Get month name
+  const year = date.getFullYear();
+
+  // Add "th", "st", "nd", or "rd" to the date
+  let suffix = 'th';
+  if (day === 1 || day === 21 || day === 31) suffix = 'st';
+  if (day === 2 || day === 22) suffix = 'nd';
+  if (day === 3 || day === 23) suffix = 'rd';
+
+  return `${day}${suffix} ${month} ${year}`;
+}
+
 
 // Fix Masonry layout on window resize
 window.addEventListener('resize', () => {
