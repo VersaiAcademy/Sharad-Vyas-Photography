@@ -1,9 +1,12 @@
 # Enable URL Rewriting
 RewriteEngine On
 
+# Redirect to the correct main index file
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^ index.php [L]
+
 # Redirect requests to the correct directory for PHP files
 RewriteRule ^admin$ admin/index.php [L]
-RewriteRule ^frontend$ frontend/index.html [L]
 
 # Force HTTPS (optional: if you are using HTTPS)
 # Uncomment this block if you want to enforce HTTPS

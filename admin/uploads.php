@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['files'])) {
         }
     }
 
-    // Redirect back to index.php
+    // Redirect back to index.phphtacee
     header("Location: " . ADMIN_URL . "index.php");
     exit;
 } else {
