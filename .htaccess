@@ -1,15 +1,14 @@
 # Enable URL Rewriting
 RewriteEngine On
 
-# Redirect to the correct main index file
+# Redirect root (sharad.com/) to index.php explicitly
 RewriteCond %{REQUEST_URI} ^/$
-RewriteRule ^ index.php [L]
+RewriteRule ^ index.php [R=301,L]
 
 # Redirect requests to the correct directory for PHP files
 RewriteRule ^admin$ admin/index.php [L]
 
-# Force HTTPS (optional: if you are using HTTPS)
-# Uncomment this block if you want to enforce HTTPS
+# Force HTTPS (optional: Uncomment if using HTTPS)
 # RewriteCond %{HTTPS} off
 # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
@@ -36,8 +35,8 @@ Options -Indexes
     Allow from 127.0.0.1
 </Files>
 
-# Set default index page (in case of missing index)
-DirectoryIndex index.php index.html
+# Set default index page
+DirectoryIndex index.php
 
 # Rewrite to remove file extensions (optional, for cleaner URLs)
 RewriteRule ^([a-zA-Z0-9_-]+)$ $1.php [NC,L]
