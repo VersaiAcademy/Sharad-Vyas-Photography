@@ -71,6 +71,17 @@ include_once '../config.php';
         <label for="description" class="form-label">Description</label>
         <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter description"></textarea>
       </div>
+      <!-- Caption -->
+      <div class="mb-3">
+            <label for="caption" class="form-label">Caption</label>
+            <input type="text" class="form-control" id="caption" name="caption" placeholder="Enter caption">
+        </div>
+
+        <!-- Date Uploaded -->
+        <div class="mb-3">
+            <label for="date_uploaded" class="form-label">Date Uploaded</label>
+            <input type="date" class="form-control" id="date_uploaded" name="date_uploaded">
+        </div>
       <div class="mb-3">
         <label for="category" class="form-label">Category</label>
         <select class="form-select" id="category" name="category" onchange="toggleOtherCategoryInput()">
