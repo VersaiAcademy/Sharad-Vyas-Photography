@@ -99,7 +99,7 @@
 						<div class="intro-text">
 							<h2>My name is Sharad Vyas. I’m a reputed judge in Churu, Rajasthan with a passion for photography.</h2>
 							<p>With years of experience serving as a judge in the courts of Churu, Rajasthan, I’ve developed a deep sense of justice and precision in my work. Beyond the courtroom, I have a keen interest in photography, capturing moments of beauty in nature and life. Photography serves as a creative outlet for me, allowing me to explore different perspectives and express my passion for capturing the world through the lens. This hobby complements my professional life, offering a balance between logic and creativity.</p>
-							<a href="./portfolio.php" class="sp-link">Take a look @my portfolio</a>
+							<a href="<?php echo BASE_URL; ?>frontend/portfolio.php" class="sp-link">Take a look @my portfolio</a>
 						</div>
 					</div>
 					<div class="col-xl-5 col-lg-5 p-0">
