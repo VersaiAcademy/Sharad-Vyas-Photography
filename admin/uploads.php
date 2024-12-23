@@ -16,8 +16,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['files'])) {
     $description = htmlspecialchars($_POST['description'], ENT_QUOTES);
     $caption = htmlspecialchars($_POST['caption'], ENT_QUOTES);
     $category = htmlspecialchars($_POST['category'], ENT_QUOTES);
+    $newCategory = htmlspecialchars($_POST['newCategory'], ENT_QUOTES); // Capture the new category input
     $date_uploaded = $_POST['date_uploaded'] ?? date('Y-m-d H:i:s');
 
+      // Log incoming data for debugging (Optional, remove for production)
+      error_log("Incoming Data: " . print_r($_POST, true));
+
+      // Check if category is empty and newCategory has data
+      if (empty($category) && !empty($newCategory)) {
+          $category = $newCategory; // Use newCategory as the category
+      }
+      
     // Directory for file uploads
     $uploadDir = '../uploads/';
 
