@@ -179,7 +179,7 @@ if (empty($_SESSION['admin_logged_in'])) {
     document.getElementById('uploadForm').addEventListener('submit', function (e) {
       e.preventDefault();
 
-      const formData = new FormData(this);s
+      const formData = new FormData(this);
       fetch('uploads3.php', {
         method: 'POST',
         body: formData
