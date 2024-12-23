@@ -113,7 +113,13 @@ async function fetchMedia() {
     console.log('fetchMedia function is called'); 
     const response = await fetch(`${baseUrl}/get_media.php`);
     const data = await response.json();
-    console.log('Fetched Media:', data); // Debugging line to check fetched data
+    console.log('Fetched Media:', data);
+     // Debugging line to check fetched data
+
+    console.log('fetchVideoMedia function is called'); 
+    const response2 = await fetch(`${baseUrl}/get_video_media.php`);
+    const dataVideo = await response2.json();
+    console.log('Fetched Video Media:', dataVideo); // Debugging line to check fetched data
 
     // Pass the data to the appropriate page-specific render function
     if (window.location.pathname.includes("portfolio")) {
@@ -122,13 +128,18 @@ async function fetchMedia() {
     } else if (window.location.pathname.includes("index")) {
       renderHomePageMedia(data);    // Render home page media
       renderCarouselPhotos(data);
-    } else {
+    }else if (window.location.pathname.includes("video")) {
+      renderVideoGalleryMedia(dataVideo);
+    }
+    else {
       console.log("No render function for this page");
     }
   } catch (error) {
     console.error('Error fetching media:', error);
   }
 }
+
+
 
 function renderCategoryButtons(mediaData) {
   const categoryButtonsContainer = document.getElementById('category-buttons');
@@ -219,15 +230,6 @@ function renderPortfolioMedia(mediaData) {
       mediaLink.innerHTML = ` 
         <img src="${item.media_url}" alt="${item.title}" class="masonry-img" />
      `;
-    }
-
-    // Handle video media type
-    if (item.media_type === 'video') {
-      mediaLink.innerHTML = `
-        <video autoplay muted loop class="masonry-img">
-          <source src="${item.media_url}" type="video/mp4">
-         </video>
-      `;
     }
 
     // Append the mediaLink to the mediaElement
@@ -334,15 +336,6 @@ function renderHomePageMedia(mediaData) {
       `;
     }
 
-    // Handle video media type
-    if (item.media_type === 'video') {
-      mediaLink.innerHTML = `
-        <video autoplay muted loop class="img-fluid masonry-img">
-          <source src="${item.media_url}" type="video/mp4">
-        </video>
-      `;
-    }
-
     // Append mediaLink to the mediaElement
     mediaElement.appendChild(mediaLink);
 
@@ -359,6 +352,58 @@ function renderHomePageMedia(mediaData) {
   // Lazy load images (optional, if you plan to implement it later)
   // lazyLoadImages();
 }
+
+// Video Gallery 
+function renderVideoGalleryMedia(mediaData) {
+  const gallery = document.getElementById('media-gallery-video');
+  gallery.classList.add('masonry-grid'); // Add Masonry grid class
+
+  const fragment = document.createDocumentFragment(); // Use fragment for performance
+
+  // Determine base URL based on the environment
+  let baseUrl = '';
+  if (window.location.hostname === 'localhost') {
+    baseUrl = `${window.location.origin}/photographer-2-master/frontend`;
+  } else {
+    baseUrl = `${window.location.origin}/frontend`; // For live server
+  }
+
+  // Filter mediaData to include only videos and sort them by date in descending order
+  const recentVideos = mediaData
+    .filter(item => item.folder_link.includes('youtube') || item.media_type === 'video') // Only include videos
+    .sort((a, b) => new Date(b.date_uploaded) - new Date(a.date_uploaded)) // Sort by date descending
+    .slice(0, 25); // Take only the first 25 items
+
+  recentVideos.forEach(item => {
+    const mediaElement = document.createElement('div');
+    mediaElement.classList.add('media-item', 'masonry-item');
+
+    // Create a container for the video details and thumbnail
+    mediaElement.innerHTML = `
+  <a href="${item.folder_link}" target="_blank" class="masonry-link">
+    <div class="thumbnail-container">
+      <img src="${item.thumbnail_url}" alt="${item.title}" class="thumbnail-img">
+    </div>
+  </a>
+  <div class="media-info">
+    <h5 class="media-title">${item.title}</h5>
+    <p class="media-description">${item.description}</p>
+    <p class="media-date">Uploaded on: ${new Date(item.date_uploaded).toLocaleDateString()}</p>
+    <h6 class="media-title">${item.category}</h6>
+  </div>
+`;
+
+    // Append the mediaElement to the fragment for performance optimization
+    fragment.appendChild(mediaElement);
+  });
+
+  // Append the fragment to the gallery
+  gallery.appendChild(fragment);
+
+  // Recalculate Masonry layout after adding new items
+  initializeMasonry();
+}
+
 
 // Carousel
 function renderCarouselPhotos(photoData) {

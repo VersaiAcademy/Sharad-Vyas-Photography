@@ -46,10 +46,11 @@
         <button class="search-btn"><i class="fa fa-search"></i></button>
     </div>
     <ul class="main-menu">
-        <li><a href="<?php echo BASE_URL; ?>index.php">Home</a></li>
+	<li><a href="<?php echo BASE_URL; ?>index.php">Home</a></li>
         <li><a href="<?php echo BASE_URL; ?>frontend/about.php">About the Artist</a></li>
         <li><a href="<?php echo BASE_URL; ?>frontend/portfolio.php">Portfolio</a></li>
         <li><a href="<?php echo BASE_URL; ?>frontend/gallery-folder.php">Folder Gallery</a></li>
+        <li><a href="<?php echo BASE_URL; ?>frontend/video.php">Video Gallery</a></li>
         <li><a href="<?php echo BASE_URL; ?>frontend/contact.php">Contact</a></li>
     </ul>
 </header>

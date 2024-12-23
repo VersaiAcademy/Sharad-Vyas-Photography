@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once 'config.php';
+include_once '../config.php';
 
 // Redirect to login if not authenticated
 if (empty($_SESSION['admin_logged_in'])) {
