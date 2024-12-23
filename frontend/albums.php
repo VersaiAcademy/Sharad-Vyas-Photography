@@ -6,14 +6,20 @@
 	<meta name="description" content="Photographer html template">
 	<meta name="keywords" content="photographer, html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+	
 	<!-- Favicon -->
-	<link href="./img/favicon.ico" rel="shortcut icon"/>
+	<link href="../img/favicon.ico" rel="shortcut icon"/>
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap" rel="stylesheet">
 
 	<!-- Stylesheets -->
+	 <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap JS (includes Popper.js for modal functionality) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="css/font-awesome.min.css"/>
 	<link rel="stylesheet" href="css/magnific-popup.css"/>
@@ -21,37 +27,39 @@
 	<link rel="stylesheet" href="css/owl.carousel.min.css"/>
 
 	<!-- Main Stylesheets -->
-	<link rel="stylesheet" href="css/style.css"/>
+	<link rel="stylesheet" href="./css/style.css"/>
+
 
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
     <style>
-        /* Thumbnail container for uniform size */
+    /* Thumbnail container for uniform size */
 .thumbnail-container {
   width: 100%;
-  height: 100%; /* Fixed minimum height for consistency */
+  height: 100%; /* Fixed height for album thumbnails */
   overflow: hidden;
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
 }
 
 .thumbnail-img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensure the image fills the container without distortion */
+  object-fit: cover;
   transition: transform 0.3s ease;
 }
 
 .thumbnail-container:hover .thumbnail-img {
-  transform: scale(1.05); /* Slight zoom effect on hover */
+  transform: scale(1.05);
 }
+
 
 /* Media Info styling */
 .media-info {
-  padding: 22px;
+  padding: 16px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
   border-radius: 0 0 8px 8px;
   color: #f1f1f1;
@@ -68,14 +76,14 @@
 }
 
 .media-title {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   margin: 0 0 4px;
   color: #ffffff;
 }
 
-.media-date,
-.media-description {
+.media-description,
+.media-date {
   font-size: 14px;
   margin: 0;
   color: #dcdcdc;
@@ -87,19 +95,19 @@
   position: relative;
 }
 
-/* Overall media item styling */
-.media-item {
+/* Album folder styling */
+.album-folder {
   position: relative;
   border-radius: 8px;
   overflow: hidden;
 }
 
-        </style>
 
-    
+    </style>
+
 </head>
 <body>
-	<!-- Page Preloader -->
+	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
 	</div>
@@ -121,46 +129,25 @@
         <li><a href="<?php echo BASE_URL; ?>frontend/video.php">Video Gallery</a></li>
     </ul>
 </header>
-
 	<div class="clearfix"></div>
-	<!-- Header section end -->
+	<!-- Header section end  -->
 
-	<!-- Hero section -->
-	<div class="hero-section">
-		<div class="container-fluid">
-			<!-- Masonry Grid -->
-			<div id="media-gallery-video" class="masonry-grid">
-				<!-- Media items will be dynamically added here -->
-			</div>
-		</div>
-
-	</div>
-	<!-- Hero section end -->
-
-	<footer class="footer-section">
-		<div class="container-fluid">
-			<div class="row mt-2">
-				<div class="col-md-6 order-1 order-md-2">
-					<div class="footer-social-links">
-						<a href=""><i class="fa fa-pinterest"></i></a>
-						<a href=""><i class="fa fa-facebook"></i></a>
-						<a href=""><i class="fa fa-twitter"></i></a>
-						<a href=""><i class="fa fa-dribbble"></i></a>
-						<a href=""><i class="fa fa-behance"></i></a>
-					</div>
-				</div>
-				<div class="col-md-6 order-2 order-md-1">
-					<div class="copyright">
-  <!-- Link back to Versai Technology can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This website is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://versai.com" target="_blank">Versai Technology</a>
-  <!-- Link back to Versai Technology can't be removed. Template is licensed under CC BY 3.0. -->
-</div>
+	<!-- Portfolio section  -->
 	
-				</div>
-			</div>
+    <div class="hero-section">
+    <div class="container-fluid">
+		  <!-- Folder Section -->
+		  <div class="masonry-grid" id="album-gallery">
+		 <!-- Grid sizer for Masonry layout -->
+			<!-- Dynamic folder items will be appended here -->
 		</div>
-	</footer>
-	<!-- Footer section end  -->
+    </div>
+    </div>
+		  
+	  
+	<!-- Portfolio section end  -->
+	
+
 
 	<!-- Search model -->
 	<div class="search-model">
@@ -173,11 +160,41 @@
 	</div>
 	<!-- Search model end -->
 
+	 <!-- Modal -->
+<!-- Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="imageModalLabel">Image Title</h5>
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+		  <!-- Image and details -->
+		  <div class="row">
+			<div class="col-md-8">
+			  <img src="" alt="" class="img-fluid" id="modalImage" />
+			</div>
+			<div class="col-md-4">
+			  <h6>Description:</h6>
+			  <p id="modalDescription"></p>
+			  <p><strong>Category:</strong> <span id="modalCategory"></span></p>
+			  <p><strong>Date:</strong> <span id="modalDate"></span></p>
+			  <p><strong>Caption:</strong> <span id="modalCaption"></span></p>
+			</div>
+		  </div>
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+		</div>
+	  </div>
+	</div>
+  </div>
+  
+  
 
-	
-<!--====== Javascripts & Jquery ======-->
-<script src="js/jquery-3.2.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	<!--====== Javascripts & Jquery ======-->
+	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.slicknav.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
@@ -185,18 +202,32 @@
 	<script src="js/circle-progress.min.js"></script>
 	<script src="js/mixitup.min.js"></script>
 	<script src="js/instafeed.min.js"></script>
-	<script src="js/masonry.pkgd.min.js"></script>
 	<script src="js/main.js"></script>
-    <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-    <script src="js/script.js"></script>
-    <script>
-       // Initialize the carousel with a 5-second interval
-  const carousel = document.querySelector('#carouselExample');
-  const bootstrapCarousel = new bootstrap.Carousel(carousel, {
-    interval: 5000, // 5 seconds
-    ride: 'carousel'
+	<script src="js/masonry.pkgd.min.js"></script>
+<script src="js/mixitup.min.js"></script>
+<script src="https://unpkg.com/imagesloaded@4.1.4/imagesloaded.pkgd.min.js"></script>
+	<script src="js/script.js"></script>
+	<script>
+		document.querySelectorAll('.tab-link').forEach(tab => {
+  tab.addEventListener('click', () => {
+    renderPortfolioMedia(mediaData, 'new-filter'); // Change to new category
+    setTimeout(() => {
+      masonryInstance.reloadItems();
+      masonryInstance.layout(); // Force Masonry to recalculate layout
+    }, 200); // Small delay ensures DOM changes are applied
   });
-    </script>
-</body>
+});
+
+	</script>
+	<script>
+		window.addEventListener('resize', () => {
+  if (typeof masonryInstance !== 'undefined') {
+    masonryInstance.layout(); // Recalculate the layout
+  }
+});
+	</script>
+    <script>
+    renderAlbums(); // Fetch media and render albums
+  </script>
+	</body>
 </html>

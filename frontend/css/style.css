@@ -573,6 +573,7 @@ ol {
 .masonry-grid {
 	display: block; /* Ensures Masonry handles positioning */
 	margin: 0 auto;
+	gap: 10px;
   }
   
   /* Masonry item - General */

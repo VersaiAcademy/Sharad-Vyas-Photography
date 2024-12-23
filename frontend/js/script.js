@@ -96,7 +96,67 @@ function renderFolderPortfolio(folderData) {
 // Call the function to fetch and render the folder data when the page is loaded
 fetchFolderData();
 
-  
+function renderAlbums(mediaData) {
+  console.log("Rendering albums with media data:", mediaData); // Log incoming data
+
+  const gallery = document.getElementById('album-gallery');
+  console.log("Gallery element:", gallery); // Ensure gallery element is correctly selected
+
+  gallery.classList.add('masonry-grid'); // Add the appropriate classes
+
+  const fragment = document.createDocumentFragment(); // Use a fragment for better performance
+  console.log("Initialized document fragment for rendering.");
+
+  // Group media by category
+  const categories = mediaData.reduce((acc, item) => {
+    if (!acc[item.category]) {
+      acc[item.category] = [];
+    }
+    acc[item.category].push(item);
+    return acc;
+  }, {});
+  console.log("Grouped media data by categories:", categories); // Log grouped data
+
+  Object.keys(categories).forEach(category => {
+    console.log(`Processing category: ${category}`); // Debug current category
+
+    const folderElement = document.createElement('div');
+    folderElement.classList.add('album-folder','masonry-item');
+
+    // Use media_url as thumbnail
+    const thumbnail = categories[category][0]?.media_url; // Use the first item's media_url
+    if (!thumbnail) {
+      console.warn(`No media_url found for category: ${category}`); // Warn if no media_url is found
+    }
+
+    folderElement.innerHTML = `
+  <a href="category.html?category=${encodeURIComponent(category)}" class="masonry-link">
+    <div class="thumbnail-container">
+      <img src="${thumbnail}" alt="${category}" class="thumbnail-img">
+    </div>
+  </a>
+  <div class="media-info">
+    <h5 class="media-title">${category}</h5>
+    <p class="media-description">Explore the collection of ${category}</p>
+    <p class="media-date">Total Items: ${categories[category].length}</p>
+  </div>
+`;
+    console.log(`Created folder element for category: ${category}`, folderElement);
+
+    fragment.appendChild(folderElement);
+  });
+
+  console.log("Appending all folder elements to the gallery.");
+  gallery.appendChild(fragment);
+
+  // Initialize Masonry after rendering
+  console.log("Initializing Masonry layout.");
+  initializeMasonry();
+}
+
+
+
+
 
 async function fetchMedia() {
   try {
@@ -128,7 +188,10 @@ async function fetchMedia() {
     } else if (window.location.pathname.includes("index")) {
       renderHomePageMedia(data);    // Render home page media
       renderCarouselPhotos(data);
-    }else if (window.location.pathname.includes("video")) {
+    }else if (window.location.pathname.includes("albums")) {
+      renderAlbums(data);
+    }
+    else if (window.location.pathname.includes("video")) {
       renderVideoGalleryMedia(dataVideo);
     }
     else {
