@@ -58,6 +58,9 @@ include_once '../config.php';
           <li class="nav-item">
             <a class="nav-link" href="<?php echo ADMIN_URL; ?>upload_folder.php">Upload Folder</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo ADMIN_URL; ?>upload_video.php">Upload Video</a>
+          </li>
         </ul>
       </div>
     </div>
