@@ -129,11 +129,11 @@ if (empty($_SESSION['admin_logged_in'])) {
         <div class="mb-3">
             <label for="category" class="form-label">Category</label>
             <select class="form-select" id="category" name="category">
-                <option value="Education">Wildlife</option>
-                <option value="Entertainment">Nature</option>
-                <option value="Tutorial">Forests</option>
-                <option value="Travel">Vlogs</option>
-                <option value="Other">Trips</option>
+                <option value="Wildlife">Wildlife</option>
+                <option value="Nature">Nature</option>
+                <option value="Forests">Forests</option>
+                <option value="Vlogs">Vlogs</option>
+                <option value="Trips">Trips</option>
             </select>
         </div>
 
