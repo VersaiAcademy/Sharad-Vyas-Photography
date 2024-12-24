@@ -115,10 +115,10 @@ function renderAlbums(mediaData) {
     acc[item.category].push(item);
     return acc;
   }, {});
-  console.log("Grouped media data by categories:", categories); // Log grouped data
+  console.log("Grouped media data by categories:", categories); 
 
   Object.keys(categories).forEach(category => {
-    console.log(`Processing category: ${category}`); // Debug current category
+    console.log(`Processing category: ${category}`); 
 
     const folderElement = document.createElement('div');
     folderElement.classList.add('album-folder','masonry-item');
