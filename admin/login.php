@@ -2,7 +2,7 @@
 session_start();
 
 // Define static password
-$adminPassword = "vyasCicks123";
+$adminPassword = "vyasClicks123";
 $loginSuccess = false;
 $loginError = false;
 
