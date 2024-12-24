@@ -417,7 +417,8 @@ function renderHomePageMedia(mediaData) {
 }
 
 // Video Gallery 
-function renderVideoGalleryMedia(mediaData) {
+function renderVideoGalleryMedia(dataVideo) {
+  console.log("Media data video is ",dataVideo);
   const gallery = document.getElementById('media-gallery-video');
   gallery.classList.add('masonry-grid'); // Add Masonry grid class
 
@@ -432,7 +433,7 @@ function renderVideoGalleryMedia(mediaData) {
   }
 
   // Filter mediaData to include only videos and sort them by date in descending order
-  const recentVideos = mediaData
+  const recentVideos = dataVideo
     .filter(item => item.folder_link.includes('youtube') || item.media_type === 'video') // Only include videos
     .sort((a, b) => new Date(b.date_uploaded) - new Date(a.date_uploaded)) // Sort by date descending
     .slice(0, 25); // Take only the first 25 items
