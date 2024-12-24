@@ -285,17 +285,16 @@
 			<div class="row">
 				<div class="col-md-6 order-1 order-md-2">
 					<div class="footer-social-links">
-						<a href=""><i class="fa fa-pinterest"></i></a>
-						<a href=""><i class="fa fa-facebook"></i></a>
-						<a href=""><i class="fa fa-twitter"></i></a>
-						<a href=""><i class="fa fa-dribbble"></i></a>
-						<a href=""><i class="fa fa-behance"></i></a>
+					<a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a>
+    <a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram"></i></a>
+    <a href="https://www.twitter.com" target="_blank"><i class="fa fa-twitter"></i></a>
+    <a href="https://www.youtube.com/@sharadkumarvyas1" target="_blank"><i class="fa fa-youtube"></i></a>
 					</div>
 				</div>
 				<div class="col-md-6 order-2 order-md-1">
 					<div class="copyright">
   <!-- Link back to Versai Technology can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This website is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://versai.com" target="_blank">Versai Technology</a>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This website is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#" target="_blank">Versai Technology</a>
   <!-- Link back to Versai Technology can't be removed. Template is licensed under CC BY 3.0. -->
 </div>
 	
