@@ -130,7 +130,7 @@ function renderAlbums(mediaData) {
     }
 
     folderElement.innerHTML = `
-  <a href="category.html?category=${encodeURIComponent(category)}" class="masonry-link">
+  <a href="category.php?category=${encodeURIComponent(category)}" class="masonry-link">
     <div class="thumbnail-container">
       <img src="${thumbnail}" alt="${category}" class="thumbnail-img">
     </div>
