@@ -457,6 +457,9 @@ function renderVideoGalleryMedia(dataVideo) {
   </div>
 `;
 
+// Log the generated HTML for the current media item
+console.log("Generated HTML for media item: ", mediaElement.innerHTML);
+
     // Append the mediaElement to the fragment for performance optimization
     fragment.appendChild(mediaElement);
   });
