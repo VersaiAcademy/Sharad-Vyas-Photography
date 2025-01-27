@@ -115,8 +115,8 @@
     <ul class="main-menu">
     <li><a href="<?php echo BASE_URL; ?>index.php">Home</a></li>
         <li><a href="<?php echo BASE_URL; ?>frontend/about.php">About the Artist</a></li>
-        <li><a href="<?php echo BASE_URL; ?>frontend/portfolio.php">Portfolio</a></li>
-        <li><a href="<?php echo BASE_URL; ?>frontend/gallery-folder.php">Drive Folder</a></li>
+        <!--<li><a href="<?php echo BASE_URL; ?>frontend/portfolio.php">Portfolio</a></li>
+        <li><a href="<?php echo BASE_URL; ?>frontend/gallery-folder.php">Drive Folder</a></li>-->
         <li><a href="<?php echo BASE_URL; ?>frontend/albums.php">Photo Gallery</a></li>
         <li><a href="<?php echo BASE_URL; ?>frontend/video.php">Video Gallery</a></li>
     </ul>
