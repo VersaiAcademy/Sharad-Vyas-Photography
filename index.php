@@ -97,8 +97,8 @@
 				<div class="row">
 					<div class="col-xl-7 col-lg-7 p-0">
 						<div class="intro-text">
-							<h2>My name is Sharad Vyas. I’m a reputed judge in Churu, Rajasthan with a passion for photography.</h2>
-							<p>With years of experience serving as a judge in the courts of Churu, Rajasthan, I’ve developed a deep sense of justice and precision in my work. Beyond the courtroom, I have a keen interest in photography, capturing moments of beauty in nature and life. Photography serves as a creative outlet for me, allowing me to explore different perspectives and express my passion for capturing the world through the lens. This hobby complements my professional life, offering a balance between logic and creativity.</p>
+							<h2>My name is Dr. Sharad Kumar Vyas, Apart from working in legal world, i'm trying to inculcate passion for photography.</h2>
+							<p>Beauty lies in the eyes of beholder &amp; to behold beauty for eternity, it is needed to capture it and to exhibit in a more beautiful ways. So by way of this platfrom, clicks from all corners of the country can be exhibited more efficiently.For more than last one decade, I am working with camera as a hobbiest. Hope viewers will appreciate the work.</p>
 							<a href="<?php echo BASE_URL; ?>frontend/portfolio.php" class="sp-link">Take a look @my portfolio</a>
 						</div>
 					</div>

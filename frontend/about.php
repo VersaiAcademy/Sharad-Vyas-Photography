@@ -65,13 +65,13 @@
 				</div>
 				<div class="col-lg-6 p-0">
 					<div class="about-text">
-						<h2>About Me <br/> Sharad Vyas</h2>
-<p>I am Sharad Vyas, a respected judge in the Indian judiciary, committed to upholding justice and integrity. Alongside my professional responsibilities, I have a deep passion for travel and capturing the beauty of life. I find immense joy in exploring new places, discovering hidden corners of the world, and experiencing the unique stories each destination has to offer. Photography allows me to freeze these moments and share the wonders of life through my lens. My journey blends both my legal profession and my love for creativity, inspiring me to appreciate the beauty in both life and law.</p>
+						<h3>About Me<br/>My name is Dr.Sharad Vyas passionate for nature and capturing moments through leses.</h3><br>
+<p>Combining the passion for Photography with job has been credibly rewarding for me. For last ten years I am following this passion. As a hobby, I started working with camera but now it has tought me that only a camera can capture this ever moving time.Photography has been a creative outlet that has allowed me to express myself, tell stories and preserve memories.</p>
 <!-- <h4>My Clients</h4> -->
 						<!-- <p>Company INC, Management INc, Photo album INC, Magnum Express, Fachion Gala, Unnamed, </p>
 						<h4>Editorials</h4>
 						<p>Vougue, Elle, Company INC, Management INc, Photo album INC, Fashion Week, Fachion Gala, Unnamed, Vanity Fair, Vougue IT</p> -->
-						<a href="<?php echo BASE_URL; ?>frontend/contact.php" class="site-btn">Contact me</a>
+						<a href="<?php echo BASE_URL; ?>#<!--frontend/contact.php-->" class="site-btn">Contact me</a>
 					</div>
 				</div>
 			</div>
