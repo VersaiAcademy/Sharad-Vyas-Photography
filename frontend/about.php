@@ -162,6 +162,43 @@
 	<!-- Instagram section end -->
 	
 	<!-- Footer section   -->
+	
+		<script>
+    // Image paths ka array
+    const images = [
+        "../img/aboutmesharad.jpg",
+        "../img/image-1.png",
+        "../img/image-2.png",
+		"../img/image-3.png",
+		"../img/image-4.png",
+		"../img/image-5.png",
+		"../img/image-6.png",
+		"../img/image-7.png",
+		"../img/image-8.png",
+		"../img/image-9.png",
+       
+       
+        // Yahan total 50 images ka path add karein
+    ];
+
+    let currentIndex = 0; // Pehli image ka index
+
+    function changeImage() {
+        const aboutSection = document.querySelector('.about-bg');
+        if (aboutSection) {
+            aboutSection.style.backgroundImage = `url('${images[currentIndex]}')`;
+            currentIndex = (currentIndex + 1) % images.length; // Index loop me chalega
+        }
+    }
+
+    // Har 5 second me image change hogi
+    setInterval(changeImage, 5000);
+
+    // Pehli baar page load hone par image set karne ke liye function call karein
+    changeImage();
+</script>
+
+	
 	<footer class="footer-section">
 		<div class="container-fluid">
 			<div class="row mt-2">

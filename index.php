@@ -103,21 +103,41 @@
 						</div>
 					</div>
 					<div class="col-xl-5 col-lg-5 p-0">
-						<!-- Sample Card -->
-						<div class="e-card playing">
-							<div class="image"></div>
-							<div class="wave"></div>
-							<div class="wave"></div>
-							<div class="wave"></div>
-							<div class="infotop">
-								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="icon">
-									<path fill="currentColor" d="..."></path>
-								</svg>
-								<br>Passionate For My Camera<br>
-								<div class="name">Capturing Life</div>
-							</div>
-						</div>
-					</div>
+    <!-- Sample Card -->
+    <div class="e-card playing">
+    <div class="image">
+        <img id="slideshow" src="/photographer-2-master/img/image-1.png" alt="Camera">
+    </div>
+</div>
+
+<script>
+    // Images ka array
+    const images = [
+        "/photographer-2-master/img/img1.png",
+        "/photographer-2-master/img/img2.png",
+        "/photographer-2-master/img/img3.jpg",
+        "/photographer-2-master/img/img4.jpg",
+        "/photographer-2-master/img/img5.jpg",
+        "/photographer-2-master/img/img6.jpeg",
+        "/photographer-2-master/img/image-7.png",
+        "/photographer-2-master/img/image-8.png",
+        "/photographer-2-master/img/image-9.png",
+      
+    ];
+
+    let index = 0; // Start position
+
+    function changeImage() {
+        index = (index + 1) % images.length; // Next image index
+        document.getElementById("slideshow").src = images[index]; // Image update
+    }
+
+    // Har 5 second me image change karega
+    setInterval(changeImage, 5000);
+</script>
+
+
+
 				</div>
 			</div>
 		</div>
