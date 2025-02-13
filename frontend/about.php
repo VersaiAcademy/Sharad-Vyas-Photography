@@ -65,13 +65,34 @@
 				</div>
 				<div class="col-lg-6 p-0">
 					<div class="about-text">
-						<h3>About Me<br/>My name is Dr.Sharad Vyas passionate for nature and capturing moments through leses.</h3><br>
-<p>Combining the passion for Photography with job has been credibly rewarding for me. For last ten years I am following this passion. As a hobby, I started working with camera but now it has tought me that only a camera can capture this ever moving time.Photography has been a creative outlet that has allowed me to express myself, tell stories and preserve memories.</p>
+						<h3>My name is Dr.Sharad Vyas, passionate for nature and capturing moments through leses.</h3><br>
+<p>Combining the passion for Photography with job has been credibly rewarding for me. For last ten years, I am following this passion. As a hobby, I started working with camera but now it has tought me that only a camera can capture this ever moving time.Photography has been a creative outlet that has allowed me to express myself, tell stories and preserve memories.</p>
 <!-- <h4>My Clients</h4> -->
 						<!-- <p>Company INC, Management INc, Photo album INC, Magnum Express, Fachion Gala, Unnamed, </p>
 						<h4>Editorials</h4>
 						<p>Vougue, Elle, Company INC, Management INc, Photo album INC, Fashion Week, Fachion Gala, Unnamed, Vanity Fair, Vougue IT</p> -->
-						<a href="<?php echo BASE_URL; ?>#<!--frontend/contact.php-->" class="site-btn">Contact me</a>
+						<!--<a href="<?php echo BASE_URL; ?>frontend/contact.php" class="site-btn">Contact me</a>-->
+						<p>
+    तस्वीरे लेना भी जरूरी हैं, जिंदगी मे साहेब... !<br>
+    आइने गुजरा हुआ वक्त नही बताया करते...!!<br><br>
+    <span class="gulzar">- गुलज़ार</span>
+</p>
+
+<style>
+    p {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    
+    .gulzar {
+        display: block;
+        text-align: right;
+        margin-top: 10px; 
+    }
+</style>
+
+						
 					</div>
 				</div>
 			</div>

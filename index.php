@@ -97,8 +97,8 @@
 				<div class="row">
 					<div class="col-xl-7 col-lg-7 p-0">
 						<div class="intro-text">
-							<h2>My name is Dr. Sharad Kumar Vyas, Apart from working in legal world, i'm trying to inculcate passion for photography.</h2>
-							<p>Beauty lies in the eyes of beholder &amp; to behold beauty for eternity, it is needed to capture it and to exhibit in a more beautiful ways. So by way of this platfrom, clicks from all corners of the country can be exhibited more efficiently.For more than last one decade, I am working with camera as a hobbiest. Hope viewers will appreciate the work.</p>
+							<h2>My name is Dr. Sharad Kumar Vyas, Apart from working in legal world, I am trying to inculcate passion for photography.</h2>
+							<p>Beauty lies in the eyes of beholder &amp; to behold beauty for eternity, it is needed to capture it and to exhibit in a more beautiful way So this platfrom clicks from all corners of the country can be exhibited more efficiently.For more than last one decade, I am working with camera as a hobbiest. Hope viewers will appreciate the work.</p>
 							<a href="<?php echo BASE_URL; ?>frontend/portfolio.php" class="sp-link">Take a look @my portfolio</a>
 						</div>
 					</div>
