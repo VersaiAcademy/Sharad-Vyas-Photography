@@ -65,9 +65,9 @@
 	<!-- Portfolio section  -->
 	<div>
 		<!-- Portfolio Filter Controls -->
-		<ul id="category-buttons" class="portfolio-filter controls text-center">
-			<!-- Category buttons will be dynamically added here -->
-		  </ul>
+		<!--<ul id="category-buttons" class="portfolio-filter controls text-center">
+			
+		  </ul>-->
 
 		  
 		  <div id="portfolio-gallery" class="row portfolio-gallery m-0">
