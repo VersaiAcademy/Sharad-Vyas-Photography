@@ -192,9 +192,9 @@
         "../img/image-2.png",
 		"../img/image-3.png",
 		"../img/image-4.png",
-		"../img/image-5.png",
-		"../img/image-6.png",
-		"../img/image-7.png",
+		"../img/image77.png",
+		"../img/image66.png",
+		"../img/image88.png",
 		"../img/image-8.png",
 		"../img/image-9.png",
        
