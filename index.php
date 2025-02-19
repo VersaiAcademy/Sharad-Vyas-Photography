@@ -159,6 +159,37 @@
 	<div class="carousel-item">
       <img src="/photographer-2-master/img/slider/slider28.jpg" class="d-block w-100" alt="Image 2">
     </div>
+	<div class="carousel-item">
+      <img src="/photographer-2-master/img/slider/A2714835.jpg" class="d-block w-100" alt="Image 2">
+    </div>
+	<div class="carousel-item">
+      <img src="/photographer-2-master/img/slider/A2714835.jpg" class="d-block w-100" alt="Image 2">
+    </div>
+	<div class="carousel-item">
+      <img src="/photographer-2-master/img/slider/A2714978.jpg" class="d-block w-100" alt="Image 2">
+    </div>
+
+	<div class="carousel-item">
+      <img src="/photographer-2-master/img/slider/A2714997.jpg" class="d-block w-100" alt="Image 2">
+    </div>
+	<div class="carousel-item">
+      <img src="/photographer-2-master/img/slider/A2715092.jpg" class="d-block w-100" alt="Image 2">
+    </div>
+	<div class="carousel-item">
+      <img src="/photographer-2-master/img/slider/A2715338.jpg" class="d-block w-100" alt="Image 2">
+    </div>
+	<div class="carousel-item">
+      <img src="/photographer-2-master/img/slider/A2715470.jpg" class="d-block w-100" alt="Image 2">
+    </div>
+	<div class="carousel-item">
+      <img src="/photographer-2-master/img/slider/A2715681.jpg" class="d-block w-100" alt="Image 2">
+    </div>
+	<div class="carousel-item">
+      <img src="/photographer-2-master/img/slider/A2715686.jpg" class="d-block w-100" alt="Image 2">
+    </div>
+	<div class="carousel-item">
+      <img src="/photographer-2-master/img/slider/A2715712.jpg" class="d-block w-100" alt="Image 2">
+    </div>
     <!-- Add more items (up to 50 images) -->
   </div>
 </div>
