@@ -160,35 +160,35 @@
       <img src="img/slider/slider28.jpg" class="d-block w-100" alt="Image 28">
     </div>
 	<div class="carousel-item">
-      <img src="img/slider/A2714835.jpg" class="d-block w-100" alt="Image 29">
+      <img src="img/slider/slider29.jpg" class="d-block w-100" alt="Image 29">
     </div>
 	<div class="carousel-item">
-      <img src="img/slider/A2714835.jpg" class="d-block w-100" alt="Image 30">
+      <img src="img/slider/slider30.jpg" class="d-block w-100" alt="Image 30">
     </div>
 	<div class="carousel-item">
-      <img src="img/slider/A2714978.jpg" class="d-block w-100" alt="Image 31">
+      <img src="img/slider/slider31.jpg" class="d-block w-100" alt="Image 31">
     </div>
 
 	<div class="carousel-item">
-      <img src="img/slider/A2714997.jpg" class="d-block w-100" alt="Image 32">
+      <img src="img/slider/slider32.jpg" class="d-block w-100" alt="Image 32">
     </div>
 	<div class="carousel-item">
-      <img src="img/slider/A2715092.jpg" class="d-block w-100" alt="Image 33">
+      <img src="img/slider/slider33.jpg" class="d-block w-100" alt="Image 33">
     </div>
 	<div class="carousel-item">
-      <img src="img/slider/A2715338.jpg" class="d-block w-100" alt="Image 34">
+      <img src="img/slider/slider34.jpg" class="d-block w-100" alt="Image 34">
     </div>
 	<div class="carousel-item">
-      <img src="img/slider/A2715470.jpg" class="d-block w-100" alt="Image 35">
+      <img src="img/slider/slider35.jpg" class="d-block w-100" alt="Image 35">
     </div>
 	<div class="carousel-item">
-      <img src="img/slider/A2715681.jpg" class="d-block w-100" alt="Image 36">
+      <img src="img/slider/slider36.jpg" class="d-block w-100" alt="Image 36">
     </div>
 	<div class="carousel-item">
-      <img src="img/slider/A2715686.jpg" class="d-block w-100" alt="Image 37">
+      <img src="img/slider/slider37.jpg" class="d-block w-100" alt="Image 37">
     </div>
 	<div class="carousel-item">
-      <img src="/img/slider/A2715712.jpg" class="d-block w-100" alt="Image 38">
+      <img src="img/slider/slider38.jpg" class="d-block w-100" alt="Image 38">
     </div>
     <!-- Add more items (up to 50 images) -->
   </div>
