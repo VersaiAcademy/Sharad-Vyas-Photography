@@ -65,8 +65,8 @@
 				</div>
 				<div class="col-lg-6 p-0">
 					<div class="about-text">
-						<h3>My name is Dr.Sharad Vyas, passionate for nature and capturing moments through leses.</h3><br>
-<p>Combining the passion for Photography with job has been credibly rewarding for me. For last ten years, I am following this passion. As a hobby, I started working with camera but now it has tought me that only a camera can capture this ever moving time.Photography has been a creative outlet that has allowed me to express myself, tell stories and preserve memories.</p>
+						<h3>My Name is Dr. Sharad Kumar Vyas, passionate for nature and capturing moments through lenses.</h3><br>
+<p>Combining the passion for photography with the job has been credibly rewarding for me. For last more than 10 years, I am following this passion. I started working with the camera as a hobby, but now it has taught me that only a camera can capture this ever moving time. Photography has been a creative outlet that has allowed me to express myself, tell stories and preserve memories.</p>
 <!-- <h4>My Clients</h4> -->
 						<!-- <p>Company INC, Management INc, Photo album INC, Magnum Express, Fachion Gala, Unnamed, </p>
 						<h4>Editorials</h4>
