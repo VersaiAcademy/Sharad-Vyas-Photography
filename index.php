@@ -199,16 +199,115 @@
 	<div class="hero-section">
 		<div class="container-fluid">
 			<!-- Masonry Grid -->
-			<div id="media-gallery" class="masonry-grid">
+			 
+			<!--<div id="media-gallery" class="masonry-grid">-->
 				<!-- Media items will be dynamically added here -->
-			</div>
+			<!--</div>-->
+			<div class="masonry">
+  <div class="column"><img src="media/A27I2174.jpg" alt="Image 1"></div>
+  <div class="column"><img src="media/A27I4415.jpg" alt="Image 2"></div>
+  <div class="column"><img src="media/LRM_EXPORT_20171003_230518.jpg" alt="Image 3"></div>
+  <div class="column"><img src="media/A27I4542.jpg" alt="Image 4"></div>
+  <!-- Add more images below -->
+  <div class="column"><img src="media/A27I3887.jpg" alt="Image 5"></div>
+  <div class="column"><img src="media/A27I2389 - Copy (2).jpg" alt="Image 6"></div>
+  <div class="column"><img src="media/A27I2357 (1) - Copy.jpg" alt="Image 5"></div>
+  <div class="column"><img src="media/A27I0621.jpg" alt="Image 6"></div>
+  <!-- add more-->
+  <div class="column"><img src="media/LRM_EXPORT_139520833449605_20190210_114105437.jpeg" alt="Image 5"></div>
+  <div class="column"><img src="media/LRM_EXPORT_463075489476_20181225_224406112.jpeg" alt="Image 6"></div>
+  <div class="column"><img src="media/LRM_EXPORT_251983683065153_20190105_000358881.jpeg" alt="Image 5"></div>
+  <div class="column"><img src="media/LRM_EXPORT_164377511493341_20190114_183839554.jpeg" alt="Image 6"></div>
+  <!-- add more-->
+  <div class="column"><img src="media/A27I3114.jpg" alt="Image 5"></div>
+  <div class="column"><img src="media/PSX_20201107_235347.jpg" alt="Image 6"></div>
+  <div class="column"><img src="media/A27I0110.jpg" alt="Image 5"></div>
+  <div class="column"><img src="media/LRM_EXPORT_276904706052361_20190105_183044730.jpeg" alt="Image 6"></div>
+</div>
+<script>
+  // Array of images for each column
+  const imageSets = [
+    ["media/A27I2174.jpg", "media/PSX_20201107_235347.jpg", "media/A27I1633.jpg", "media/A27I6369.jpg"],
+    ["media/A27I4542.jpg", "media/LRM_EXPORT_20170903_173755.jpg", "media/A27I2244.jpg", "media/A27I6587.jpg"],
+    ["media/LRM_EXPORT_19820962648368_20190427_230516430.jpeg", "media/LRM_EXPORT_20170916_005146.jpg", "media/A27I1945.jpg", "media/A27I6443.jpg"],
+    ["media/A27I4542.jpg", "media/LRM_EXPORT_20170919_213947.jpg", "media/A27I2010.jpg", "media/A27I6405.jpg"],
+
+    ["media/LRM_EXPORT_20170803_093949.jpg", "media/A27I2174.jpg", "media/A27I6369.jpg", "media/A27I1633.jpg"],
+    ["media/LRM_EXPORT_20170903_173755.jpg", "media/A27I4542.jpg", "media/A27I6587.jpg", "media/A27I2244.jpg"],
+    ["media/LRM_EXPORT_20170916_005146.jpg", "media/LRM_EXPORT_19820962648368_20190427_230516430.jpeg", "media/A27I6443.jpg", "media/A27I1945.jpg"],
+    ["media/LRM_EXPORT_20170919_213947.jpg", "media/A27I6405.jpg", "media/A27I2010.jpg"],
+
+    ["media/A27I3114.jpg", "media/LRM_EXPORT_20170803_093949.jpg", "media/A27I0110.jpg", "media/LRM_EXPORT_276904706052361_20190105_183044730.jpeg"],
+    ["media/LRM_EXPORT_139520833449605_20190210_114105437.jpeg", "media/LRM_EXPORT_463075489476_20181225_224406112.jpeg", "media/LRM_EXPORT_251983683065153_20190105_000358881.jpeg", "media/LRM_EXPORT_164377511493341_20190114_183839554.jpeg"],
+    ["media/A27I3887.jpg", "media/A27I2389 - Copy (2).jpg", "media/A27I2357 (1) - Copy.jpg", "media/A27I0621.jpg"],
+    ["media/A27I2056.jpg", "media/A27I2078.jpg", "media/A27I2081.jpg", "media/A27I2852.jpg"],
+	
+    ["media/A27I6783.jpg", "media/A27I6774.jpg", "media/A27I6860.jpg", "media/A27I7037.jpg"],
+    ["media/LRM_EXPORT_20170805_182637.jpg", "media/LRM_EXPORT_20170805_190124.jpg", "media/LRM_EXPORT_20170806_081621.jpg", "media/LRM_EXPORT_20170807_133626.jpg"],
+    ["media/A27I3887.jpg", "media/A27I2389 - Copy (2).jpg", "media/A27I2357 (1) - Copy.jpg", "media/A27I0621.jpg"],
+    ["media/A27I2056.jpg", "media/A27I2078.jpg", "media/A27I2081.jpg", "media/A27I2852.jpg"],
+	
+	
+
+	
+  ];
+
+  const columns = document.querySelectorAll(".column img");
+
+  let index = 0;
+  setInterval(() => {
+    index = (index + 1) % imageSets[0].length;
+    columns.forEach((img, i) => {
+      img.style.opacity = 0;
+      setTimeout(() => {
+        img.src = imageSets[i][index];
+        img.style.opacity = 1;
+      }, 300);
+    });
+  }, 5000); // Change every 3 seconds
+</script>
+  
+
+  <style>
+.masonry {
+  column-count: 4;
+  column-gap: 15px;
+  padding: 10px;
+}
+
+.masonry img {
+  width: 100%;
+  margin-bottom: 15px;
+  break-inside: avoid;
+  border-radius: 8px;
+  display: block;
+}
+@media (max-width: 1200px) {
+  .masonry {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .masonry {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .masonry {
+    column-count: 1;
+  }
+}
+
+  </style>
 		</div>
-		<div class="hero-social-links">
+		<!--<div class="hero-social-links">
 		<a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a>
     <a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram"></i></a>
     <a href="https://www.twitter.com" target="_blank"><i class="fa fa-twitter"></i></a>
     <a href="https://www.youtube.com/@sharadkumarvyas1" target="_blank"><i class="fa fa-youtube"></i></a>
-		</div>
+		</div>-->
 	</div>
 	<!-- Hero section end -->
 
