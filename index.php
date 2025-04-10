@@ -327,22 +327,22 @@
     <!-- Sample Card -->
     <div class="e-card playing">
     <div class="image">
-        <img id="slideshow" src="/photographer-2-master/img/image-1.png" alt="Camera">
+        <img id="slideshow" src="img/img1.png" alt="Camera">
     </div>
 </div>
 
 <script>
     // Images ka array
     const images = [
-        "/photographer-2-master/img/img1.png",
-        "/photographer-2-master/img/img2.png",
-        "/photographer-2-master/img/img3.jpg",
-        "/photographer-2-master/img/img4.jpg",
-        "/photographer-2-master/img/img5.jpg",
-        "/photographer-2-master/img/img6.jpeg",
-        "/photographer-2-master/img/image-7.png",
-        "/photographer-2-master/img/image-8.png",
-        "/photographer-2-master/img/image-9.png",
+        "img/img1.png",
+        "img/img2.png",
+        "img/img3.jpg",
+        "img/img4.jpg",
+        "img/img5.jpg",
+        "img/img6.jpeg",
+        "img/image-7.png",
+        "img/image-8.png",
+        "img/image-9.png",
       
     ];
 
