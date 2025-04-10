@@ -332,30 +332,32 @@
 </div>
 
 <script>
-    // Images ka array
-    const images = [
-        "img/img1.png",
-        "img/img2.png",
-        "img/img3.jpg",
-        "img/img4.jpg",
-        "img/img5.jpg",
-        "img/img6.jpeg",
-        "img/image-7.png",
-        "img/image-8.png",
-        "img/image-9.png",
-      
-    ];
+    document.addEventListener("DOMContentLoaded", function() {
+        // Your slideshow script here
+        const images = [
+            "img/img1.png",
+            "img/img2.png",
+            "img/img3.jpg",
+            "img/img4.jpg",
+            "img/img5.jpg",
+            "img/img6.jpeg",
+            "img/image-7.png",
+            "img/image-8.png",
+            "img/image-9.png",
+        ];
 
-    let index = 0; // Start position
+        let index = 0;
 
-    function changeImage() {
-        index = (index + 1) % images.length; // Next image index
-        document.getElementById("slideshow").src = images[index]; // Image update
-    }
+        function changeImage() {
+            index = (index + 1) % images.length; // Update the index
+            const imageUrl = images[index] + "?timestamp=" + new Date().getTime(); // Add a timestamp to avoid caching
+            document.getElementById("slideshow").src = imageUrl; // Update the image source
+        }
 
-    // Har 5 second me image change karega
-    setInterval(changeImage, 5000);
+        setInterval(changeImage, 5000); // Change image every 5 seconds
+    });
 </script>
+
 
 
 
