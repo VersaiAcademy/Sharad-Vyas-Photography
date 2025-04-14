@@ -189,6 +189,11 @@
   height: 100%;
   border: none;
 }
+@media (max-width: 768px) {
+  .video-container {
+    flex: 1 1 100%;
+  }
+}
 
 	 </style>
 
