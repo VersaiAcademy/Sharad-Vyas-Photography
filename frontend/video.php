@@ -129,13 +129,68 @@
 	<div class="hero-section">
 		<div class="container-fluid">
 			<!-- Masonry Grid -->
-			<div id="media-gallery-video" class="masonry-grid">
-				<!-- Media items will be dynamically added here -->
-			</div>
+			<!--<div id="media-gallery-video" class="masonry-grid">
+				
+			</div>-->
+			<div class="video-gallery">
+    <div class="video-container">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/aaR8I1LxURo?si=EORKrJs3jj1JFFvR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="video-container">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/kPETMoh-OAU?si=FgOamViyVZxtFlKo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="video-container">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/evSRv8Os0q4?si=kpZetXnLQekLNhGy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="video-container">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/mABBwyArCR0?si=YLV8SUWDIdDjAisL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="video-container">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/HZkSJY-zDgw?si=rnXFxVXJ84a0W60b" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="video-container">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/cGDmo7Jbva0?si=Ufq1GXTIg7HFETJr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="video-container">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/y8zmGlhdu78?si=Uf1fxeLcsSweYTU1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="video-container">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/Msaq3Ey6a4k?si=m8D3PuUhvsu1ysiy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="video-container">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/wokTrhhso2A?si=KkAVbMShaDF3-XJX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    
+
+
 		</div>
 
 	</div>
 	<!-- Hero section end -->
+	 <style>
+	
+	.video-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.video-container {
+  flex: 1 1 calc(33.333% - 20px);
+  max-width: 560px;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  border-radius: 15px; 
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+	 </style>
 
 	<footer class="footer-section">
 		<div class="container-fluid">
